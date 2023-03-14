@@ -8,21 +8,18 @@ y = np.power(x, (gl/2)-1) * np.exp(-x/2) / (np.power(2, gl/2) * np.math.gamma(gl
 # Crear la figura y los ejes
 fig, ax = plt.subplots()
 
-# Graficar la línea vertical
-
-
 # Graficar la curva 1 en los ejes
 ax.plot(x, y, color='blue')
 
 # Definir los límites de las áreas a sombrear
-x_left = 1
-x_right = 7.5
+chi2_critico_inferior = 1
+chi2_critico_superior = 7.5
 
 # Sombrar el área izquierda debajo de la curva
-plt.fill_between(x, 0, y, where=(x <= x_left), color='blue', alpha=0.3, label = "Área de rechazo")
+plt.fill_between(x, 0, y, where=(x <= chi2_critico_inferior), color='blue', alpha=0.3, label = "Área de rechazo")
 
 # Sombrar el área derecha debajo de la curva
-plt.fill_between(x, 0, y, where=(x >= x_right), color='blue', alpha=0.3)
+plt.fill_between(x, 0, y, where=(x >= chi2_critico_superior), color='blue', alpha=0.3)
 
 # Graficar la línea vertical
 ax.axvline(x=5, color='red', label = "x^2 = {}".format(5))

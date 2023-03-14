@@ -24,14 +24,14 @@ ax.margins(x=0, y=0.1)
 ax.axvline(x=mu, color='black')
 
 # Definir los límites de las áreas a sombrear
-x_left = -2.58
-x_right = 2.58
+z_critico_inferior = -2.58
+z_critico_superior = 2.58
 
 # Sombrar el área izquierda debajo de la curva
-plt.fill_between(x, 0, y, where=(x <= x_left), color='blue', alpha=0.3, label = "Área de rechazo")
+plt.fill_between(x, 0, y, where=(x <= z_critico_inferior), color='blue', alpha=0.3, label = "Área de rechazo")
 
 # Sombrar el área derecha debajo de la curva
-plt.fill_between(x, 0, y, where=(x >= x_right), color='blue', alpha=0.3)
+plt.fill_between(x, 0, y, where=(x >= z_critico_superior), color='blue', alpha=0.3)
 
 # Graficar la línea vertical
 ax.axvline(x=-1.24, color='red', label = "Zp = {}".format(-1.24))
