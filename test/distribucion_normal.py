@@ -15,7 +15,7 @@ y = 1/(sigma*np.sqrt(2*np.pi))*np.exp(-(x-mu)**2/(2*sigma**2))
 fig, ax = plt.subplots()
 
 # Graficar la curva 1 en los ejes
-ax.plot(x, y, color='blue')
+ax.plot(x, y, 'blue')
 
 # Establecer los márgenes de la figura para centrar la gráfica
 ax.margins(x=0, y=0.1)
@@ -23,20 +23,21 @@ ax.margins(x=0, y=0.1)
 # Graficar la línea vertical
 ax.axvline(x=mu, color='black')
 
-# Graficar la línea vertical
-ax.axvline(x=-1.24, color='red')
-
 # Definir los límites de las áreas a sombrear
 x_left = -2.58
 x_right = 2.58
 
 # Sombrar el área izquierda debajo de la curva
-plt.fill_between(x, 0, y, where=(x <= x_left), color='blue', alpha=0.3)
+plt.fill_between(x, 0, y, where=(x <= x_left), color='blue', alpha=0.3, label = "Área de rechazo")
 
 # Sombrar el área derecha debajo de la curva
 plt.fill_between(x, 0, y, where=(x >= x_right), color='blue', alpha=0.3)
 
+# Graficar la línea vertical
+ax.axvline(x=-1.24, color='red', label = "Zp = {}".format(-1.24))
+
 plt.title('Función Gaussiana')
 plt.xlabel('x')
 plt.ylabel('y')
+plt.legend()
 plt.show()
