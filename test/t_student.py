@@ -22,12 +22,12 @@ ax.plot(x, t.pdf(x, df), 'blue')
 ax.axvline(x=0, color='black')
 
 # Sombrear el área a la izquierda del valor crítico
-plt.fill_between(x, 0, t.pdf(x, df), where=x<=t_critico_inferior, color='blue', alpha=0.3)
+plt.fill_between(x, 0, t.pdf(x, df), where=x<=t_critico_inferior, color='blue', alpha=0.3, label = "Área de rechazo")
 
 plt.fill_between(x, 0, t.pdf(x, df), where=x>=t_critico_superior, color='blue', alpha=0.3)
 
 # Graficar la línea vertical
-ax.axvline(x=-1.24, color='red')
+ax.axvline(x=-1.24, color='red', label="tp = {}".format(-1.24))
 
 plt.legend()
 plt.show()
