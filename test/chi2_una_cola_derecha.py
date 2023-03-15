@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import chi2
 
 # definimos los parámetros de la distribución chi-cuadrado
-df = 9
+df = 19
 
 # definimos el nivel de significancia
 alpha = 0.05
@@ -15,10 +15,9 @@ x = np.linspace(0, chi2.ppf(0.999, df), 1000)
 pdf = chi2.pdf(x, df)
 
 # Valor crítico de la chi-cuadrado a la izquierda
-valor_critico = chi2.ppf(alpha, df)
+valor_critico = chi2.ppf(1-alpha, df)
 
 # definimos los límites del área de rechazo
-limite_izquierdo = x[x <= valor_critico]
 limite_derecho = x[x >= valor_critico]
 
 # creamos la figura y los ejes
@@ -29,9 +28,6 @@ ax.plot(x, pdf)
 
 # sombrear el área de rechazo a la derecha del valor crítico
 ax.fill_between(limite_derecho, 0, chi2.pdf(limite_derecho, df), alpha=0.5, label="Rechazo {}".format(valor_critico))
-
-# sombrear el área de rechazo a la izquierda del valor crítico
-ax.fill_between(limite_izquierdo, 0, chi2.pdf(limite_izquierdo, df), alpha=0.5, label="Rechazo {}".format(valor_critico))
 
 # ajustamos los límites de los ejes
 ax.set_xlim([0, chi2.ppf(0.999, df)])
