@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import t
 
 # Definir los grados de libertad
-gl = 10
+gl = 5
 alpha = 0.1
 # Generar una muestra aleatoria de la distribución t
 x = np.linspace(t.ppf(0.01, gl), t.ppf(0.99, gl), 100)
