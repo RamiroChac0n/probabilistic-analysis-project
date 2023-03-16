@@ -6,8 +6,8 @@ from scipy.stats import t
 gl = 5
 alpha = 0.05
 
-# Generar una muestra aleatoria de la distribución t
-x = np.linspace(t.ppf(0.01, gl), t.ppf(0.99, gl), 100)
+# Crear un conjunto de valores x en el rango de -4 a 4 con incrementos de 0.1
+x = np.arange(-4, 4, 0.1)
 
 # Definir el valor crítico
 t_critico = t.ppf(1-alpha, gl)
@@ -25,7 +25,7 @@ ax.axvline(x=0, color='black', linewidth = 1)
 plt.fill_between(x, 0, t.pdf(x, gl), where=x>=t_critico, color='blue', alpha=0.3, label = "tc Superior = {}".format(t_critico))
 
 # Graficar la línea vertical
-ax.axvline(x=1.3145, color='red', label="tp = {}".format(1.3145))
+ax.axvline(x=1.312, color='red', label="tp = {}".format(1.312))
 
 plt.legend()
 plt.show()
