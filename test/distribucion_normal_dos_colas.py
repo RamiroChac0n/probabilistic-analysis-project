@@ -5,7 +5,7 @@ from scipy.stats import norm
 alpha = 0.01
 
 # Crear un conjunto de valores x en el rango de -3 a 3 con incrementos de 0.1
-x = np.arange(-3, 3, 0.1)
+x = np.arange(-4, 4, 0.1)
 
 # Crear la distribución normal
 y = norm.pdf(x, 0, 1)
