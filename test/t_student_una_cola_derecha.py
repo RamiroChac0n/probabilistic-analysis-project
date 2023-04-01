@@ -5,6 +5,7 @@ from scipy.stats import t
 # Definir los grados de libertad
 gl = 5
 alpha = 0.05
+t_prueba = 1.312
 
 # Crear un conjunto de valores x en el rango de -4 a 4 con incrementos de 0.1
 x = np.arange(-4, 4, 0.1)
@@ -25,7 +26,13 @@ ax.axvline(x=0, color='black', linewidth = 1)
 plt.fill_between(x, 0, t.pdf(x, gl), where=x>=t_critico, color='blue', alpha=0.3, label = "tc Superior = {}".format(t_critico))
 
 # Graficar la línea vertical
-ax.axvline(x=1.312, color='red', label="tp = {}".format(1.312))
+ax.axvline(x=t_prueba, color='red', label="tp = {}".format(t_prueba))
+
+# Calcula el P-valor
+p_valor = t.sf(t_prueba, gl)
+
+# Sombrea el area del P-valor sin mezclar con el area de la cola
+plt.fill_between(x, 0, t.pdf(x, gl), where=x>=t_prueba, color='skyblue', alpha=0.3, label = "P-valor = {}".format(p_valor))
 
 plt.legend()
 plt.show()
