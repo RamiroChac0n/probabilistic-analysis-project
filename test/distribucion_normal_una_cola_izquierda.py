@@ -6,7 +6,7 @@ alpha = 0.01
 z_prueba = -2.16
 
 # Crear un conjunto de valores x en el rango de -3 a 3 con incrementos de 0.1
-x = np.arange(-4, 4, 0.1)
+x = np.arange(-4, 4, 0.01)
 
 # Crear la distribución normal
 y = norm.pdf(x, 0, 1)
@@ -30,7 +30,7 @@ ax.axvline(x=z_prueba, color='red', label = "Zp = {}".format(z_prueba))
 p_valor = norm.cdf(z_prueba)
 
 # Sombrea el area del P-valor incluyendo el valor critico sin mezclar con el area de la cola
-plt.fill_between(x, 0, y, where=(x <= z_prueba), color='skyblue', alpha=0.3, label = "P-valor = {}".format(p_valor))
+plt.fill_between(x, 0, y, where=(x <= z_prueba), color='skyblue', alpha=0.5, label = "P-valor = {}".format(p_valor))
 
 plt.legend()
 plt.xlabel('Valores x')

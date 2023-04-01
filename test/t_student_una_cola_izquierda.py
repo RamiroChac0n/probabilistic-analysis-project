@@ -8,7 +8,7 @@ alpha = 0.01
 t_prueba = -1.53
 
 # Crear un conjunto de valores x en el rango de -4 a 4 con incrementos de 0.1
-x = np.arange(-4, 4, 0.1)
+x = np.arange(-4, 4, 0.01)
 
 # Definir el valor crítico
 t_critico = t.ppf(alpha, gl)
@@ -32,7 +32,7 @@ ax.axvline(x=t_prueba, color='red', label="tp = {}".format(t_prueba))
 p_valor = t.cdf(t_prueba, gl)
 
 # Sombrea el area del P-valor sin mezclar con el area de la cola
-plt.fill_between(x, 0, t.pdf(x, gl), where=x<=t_prueba, color='skyblue', alpha=0.3, label = "P-valor = {}".format(p_valor))
+plt.fill_between(x, 0, t.pdf(x, gl), where=x<=t_prueba, color='skyblue', alpha=0.5, label = "P-valor = {}".format(p_valor))
 
 plt.legend()
 plt.show()
