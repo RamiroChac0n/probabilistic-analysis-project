@@ -44,3 +44,4 @@ def una_cola_izquierda(muestra, desviacion_std_muestral, desviacion_std_poblacio
 
     # mostramos la leyenda
     ax.legend(loc="best")
+    plt.savefig('grafica.jpg')

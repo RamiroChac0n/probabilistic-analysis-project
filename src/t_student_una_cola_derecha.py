@@ -36,3 +36,4 @@ def una_cola_derecha(media_muestral, media_poblacional, desviacion_std_muestral,
     plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x>=t_prueba, color='skyblue', alpha=0.5, label = "P-valor = {}".format(p_valor))
 
     plt.legend()
+    plt.savefig('grafica.jpg')
