@@ -45,3 +45,4 @@ def dos_colas(muestra, desviacion_std_muestral, desviacion_std_poblacional, alph
 
     # mostramos la leyenda
     ax.legend(loc="best")
+    plt.savefig('grafica.jpg')

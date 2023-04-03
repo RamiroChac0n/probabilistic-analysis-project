@@ -37,3 +37,4 @@ def una_cola_derecha(media_muestral, media_poblacional, desviacion_std_poblacion
     plt.xlabel('Valores x')
     plt.ylabel('Densidad de probabilidad')
     plt.title('Distribución normal estándar')
+    plt.savefig('grafica.jpg')

@@ -54,5 +54,6 @@ def dos_colas(media_muestral, media_poblacional, desviacion_std_poblacional, mue
     plt.xlabel('Valores x')
     plt.ylabel('Densidad de probabilidad')
     plt.title('Distribución normal estándar')
+    plt.savefig('grafica.jpg')
     # plt.show()
 # dos_colas(16.15, 16, 1.20, 65, 0.05)
