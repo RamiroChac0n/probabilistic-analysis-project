@@ -23,9 +23,9 @@ def dos_colas(media_muestral, media_poblacional, desviacion_std_muestral, muestr
     ax.axvline(x=0, color='black', linewidth = 1)
 
     # Sombrear el área a la izquierda del valor crítico
-    plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x<=t_critico_inferior, color='blue', alpha=0.3, label = "tc Inferior = {}".format(t_critico_inferior))
+    plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x<=t_critico_inferior, color='blue', alpha=0.5, label = "tc Inferior = {}".format(t_critico_inferior))
 
-    plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x>=t_critico_superior, color='blue', alpha=0.3, label = "tc Superior = {}".format(t_critico_superior))
+    plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x>=t_critico_superior, color='blue', alpha=0.5, label = "tc Superior = {}".format(t_critico_superior))
 
     # Graficar la línea vertical
     ax.axvline(x=t_prueba, color='red', label="tp = {}".format(t_prueba))

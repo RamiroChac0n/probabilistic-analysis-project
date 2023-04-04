@@ -23,10 +23,10 @@ def dos_colas(media_muestral, media_poblacional, desviacion_std_poblacional, mue
     z_critico_superior = norm.ppf(1-alpha/2)
 
     # Sombrar el área izquierda debajo de la curva
-    plt.fill_between(x, 0, y, where=(x <= z_critico_inferior), color='blue', alpha=0.3, label = "Zc Inferior = {}".format(z_critico_inferior))
+    plt.fill_between(x, 0, y, where=(x <= z_critico_inferior), color='blue', alpha=0.5, label = "Zc Inferior = {}".format(z_critico_inferior))
 
     # Sombrar el área derecha debajo de la curva
-    plt.fill_between(x, 0, y, where=(x >= z_critico_superior), color='blue', alpha=0.3, label = "Zc Superior = {}".format(z_critico_superior))
+    plt.fill_between(x, 0, y, where=(x >= z_critico_superior), color='blue', alpha=0.5, label = "Zc Superior = {}".format(z_critico_superior))
 
     if valor_esperado == True:
         # Graficar la línea vertical
@@ -85,10 +85,10 @@ def dos_colas_proporciones(proporcion_muestral, proporcion_poblacional, muestra,
     z_critico_superior = norm.ppf(1-alpha/2)
     
     # Sombrar el área izquierda debajo de la curva
-    plt.fill_between(x, 0, y, where=(x <= z_critico_inferior), color='blue', alpha=0.3, label = "Zc Inferior = {}".format(z_critico_inferior))
+    plt.fill_between(x, 0, y, where=(x <= z_critico_inferior), color='blue', alpha=0.5, label = "Zc Inferior = {}".format(z_critico_inferior))
     
     # Sombrar el área derecha debajo de la curva
-    plt.fill_between(x, 0, y, where=(x >= z_critico_superior), color='blue', alpha=0.3, label = "Zc Superior = {}".format(z_critico_superior))
+    plt.fill_between(x, 0, y, where=(x >= z_critico_superior), color='blue', alpha=0.5, label = "Zc Superior = {}".format(z_critico_superior))
     
     if valor_esperado == True:
         # Graficar la línea vertical

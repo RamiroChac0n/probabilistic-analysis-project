@@ -60,7 +60,7 @@ def una_cola_derecha_proporciones(proporcion_muestral, proporcion_poblacional, m
     z_critico = norm.ppf(1-alpha)
 
     # Sombrar el área derecha debajo de la curva
-    plt.fill_between(x, 0, y, where=(x >= z_critico), color='blue', alpha=0.3, label = "Zc = {}".format(z_critico))
+    plt.fill_between(x, 0, y, where=(x >= z_critico), color='blue', alpha=0.5, label = "Zc = {}".format(z_critico))
 
     if valor_esperado == True:
         # Graficar la línea vertical

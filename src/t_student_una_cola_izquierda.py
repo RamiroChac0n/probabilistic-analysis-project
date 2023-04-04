@@ -24,7 +24,7 @@ def una_cola_izquierda(media_muestral, media_poblacional, desviacion_std_muestra
     ax.axvline(x=0, color='black', linewidth = 1)
 
     # Sombrear el área a la izquierda del valor crítico
-    plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x<=t_critico, color='blue', alpha=0.3, label = "tc Inferior = {}".format(t_critico))
+    plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x<=t_critico, color='blue', alpha=0.5, label = "tc Inferior = {}".format(t_critico))
 
     if valor_esperado == True:
         # Graficar la línea vertical
