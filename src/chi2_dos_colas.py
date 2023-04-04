@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import chi2
 
-def dos_colas(muestra, desviacion_std_muestral, desviacion_std_poblacional, alpha):
+def dos_colas(muestra, desviacion_std_muestral, desviacion_std_poblacional, alpha, valor_esperado):
 
     grados_libertad = len(muestra) - 1
 
@@ -40,8 +40,9 @@ def dos_colas(muestra, desviacion_std_muestral, desviacion_std_poblacional, alph
     ax.set_xlim([0, chi2.ppf(0.999, grados_libertad)])
     ax.set_ylim([0, max(pdf)*1.1])
 
-    # Graficar la línea vertical
-    ax.axvline(x=chi2_prueba, color='red', label="X^2 = {}".format(chi2_prueba))
+    if valor_esperado == True:
+        # Graficar la línea vertical
+        ax.axvline(x=chi2_prueba, color='red', label="X^2 = {}".format(chi2_prueba))
 
     # mostramos la leyenda
     ax.legend(loc="best")
