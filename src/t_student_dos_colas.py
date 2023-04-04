@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import t
 
-def dos_colas(media_muestral, media_poblacional, desviacion_std_muestral, muestra,  grados_libertad, alpha):
+def dos_colas(media_muestral, media_poblacional, desviacion_std_muestral, muestra,  grados_libertad, alpha, valor_esperado):
 
     t_prueba = (media_muestral - media_poblacional) / (desviacion_std_muestral / np.sqrt(muestra))
 
@@ -30,24 +30,25 @@ def dos_colas(media_muestral, media_poblacional, desviacion_std_muestral, muestr
     # Graficar la línea vertical
     ax.axvline(x=t_prueba, color='red', label="tp = {}".format(t_prueba))
 
-    if t_prueba > 0:
-        # Calcular el P-valor
-        p_valor = t.sf(t_prueba, grados_libertad)
+    if valor_esperado == True:
+        if t_prueba > 0:
+            # Calcular el P-valor
+            p_valor = t.sf(t_prueba, grados_libertad)
 
-        # Sombrear el area del P-valor desde el valor de prueba hasta el final de la cola superior
-        plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x>=t_prueba, color='skyblue', alpha=0.5, label = "P-valor = {}".format(p_valor))
+            # Sombrear el area del P-valor desde el valor de prueba hasta el final de la cola superior
+            plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x>=t_prueba, color='skyblue', alpha=0.5, label = "P-valor = {}".format(p_valor))
 
-        # Sombrear el area del P-valor desde el valor de prueba hasta el final de la cola inferior
-        plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x<=-t_prueba, color='skyblue', alpha=0.5)
-    else:
-        # Calcular el P-valor
-        p_valor = t.cdf(t_prueba, grados_libertad)
+            # Sombrear el area del P-valor desde el valor de prueba hasta el final de la cola inferior
+            plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x<=-t_prueba, color='skyblue', alpha=0.5)
+        else:
+            # Calcular el P-valor
+            p_valor = t.cdf(t_prueba, grados_libertad)
 
-        # Sombrear el area del P-valor desde el valor de prueba hasta el final de la cola superior
-        plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x<=t_prueba, color='skyblue', alpha=0.5, label = "P-valor = {}".format(p_valor))
+            # Sombrear el area del P-valor desde el valor de prueba hasta el final de la cola superior
+            plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x<=t_prueba, color='skyblue', alpha=0.5, label = "P-valor = {}".format(p_valor))
 
-        # Sombrear el area del P-valor desde el valor de prueba hasta el final de la cola inferior
-        plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x>=-t_prueba, color='skyblue', alpha=0.5)
+            # Sombrear el area del P-valor desde el valor de prueba hasta el final de la cola inferior
+            plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x>=-t_prueba, color='skyblue', alpha=0.5)
 
     plt.legend()
     plt.savefig('grafica.jpg')

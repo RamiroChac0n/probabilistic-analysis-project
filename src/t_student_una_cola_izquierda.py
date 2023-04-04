@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import t
 
-def una_cola_izquierda(media_muestral, media_poblacional, desviacion_std_muestral, muestra, alpha):
+def una_cola_izquierda(media_muestral, media_poblacional, desviacion_std_muestral, muestra, alpha, valor_esperado):
 
     grados_libertad = len(muestra) - 1
 
@@ -26,14 +26,15 @@ def una_cola_izquierda(media_muestral, media_poblacional, desviacion_std_muestra
     # Sombrear el área a la izquierda del valor crítico
     plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x<=t_critico, color='blue', alpha=0.3, label = "tc Inferior = {}".format(t_critico))
 
-    # Graficar la línea vertical
-    ax.axvline(x=t_prueba, color='red', label="tp = {}".format(t_prueba))
+    if valor_esperado == True:
+        # Graficar la línea vertical
+        ax.axvline(x=t_prueba, color='red', label="tp = {}".format(t_prueba))
 
-    # Calcula el P-valor
-    p_valor = t.cdf(t_prueba, grados_libertad)
+        # Calcula el P-valor
+        p_valor = t.cdf(t_prueba, grados_libertad)
 
-    # Sombrea el area del P-valor sin mezclar con el area de la cola
-    plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x<=t_prueba, color='skyblue', alpha=0.5, label = "P-valor = {}".format(p_valor))
+        # Sombrea el area del P-valor sin mezclar con el area de la cola
+        plt.fill_between(x, 0, t.pdf(x, grados_libertad), where=x<=t_prueba, color='skyblue', alpha=0.5, label = "P-valor = {}".format(p_valor))
 
     plt.legend()
     plt.savefig('grafica.jpg')
