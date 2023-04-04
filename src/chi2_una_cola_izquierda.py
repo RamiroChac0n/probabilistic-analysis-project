@@ -4,7 +4,7 @@ from scipy.stats import chi2
 
 def una_cola_izquierda(muestra, desviacion_std_muestral, desviacion_std_poblacional, alpha, valor_esperado):
     # definimos los parámetros de la distribución chi-cuadrado
-    grados_libertad = len(muestra) - 1
+    grados_libertad = muestra - 1
 
     chi2_prueba = (muestra - 1) * (desviacion_std_muestral / desviacion_std_poblacional) ** 2
 
@@ -27,7 +27,7 @@ def una_cola_izquierda(muestra, desviacion_std_muestral, desviacion_std_poblacio
     ax.plot(x, pdf)
 
     # sombrear el área de rechazo a la derecha del valor crítico
-    ax.fill_between(limite_izquierdo, 0, chi2.pdf(limite_izquierdo, grados_libertad), alpha=0.5, label="Rechazo {}".format(valor_critico))
+    ax.fill_between(limite_izquierdo, 0, chi2.pdf(limite_izquierdo, grados_libertad), alpha=0.5, color='blue', label="Rechazo {}".format(valor_critico))
 
     # ajustamos los límites de los ejes
     ax.set_xlim([0, chi2.ppf(0.999, grados_libertad)])

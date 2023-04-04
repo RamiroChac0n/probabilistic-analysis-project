@@ -4,7 +4,7 @@ from scipy.stats import chi2
 
 def una_cola_derecha(muestra, desviacion_std_muestral, desviacion_std_poblacional, alpha, valor_esperado):
     
-    grados_libertad = len(muestra) - 1
+    grados_libertad = muestra - 1
     chi2_prueba = (muestra - 1) * (desviacion_std_muestral / desviacion_std_poblacional) ** 2
 
     # definimos el rango de valores para la variable aleatoria
