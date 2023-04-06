@@ -7,7 +7,7 @@ def valor_observado(media_muestral, media_poblacional, desviacion_std_muestral, 
 
 def una_cola_izquierda(media_muestral, media_poblacional, desviacion_std_muestral, muestra, alpha, valor_esperado):
 
-    grados_libertad = len(muestra) - 1
+    grados_libertad = muestra - 1
 
     t_prueba = valor_observado(media_muestral, media_poblacional, desviacion_std_muestral, muestra);
 

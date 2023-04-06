@@ -5,7 +5,9 @@ from scipy.stats import t
 def valor_observado(media_muestral, media_poblacional, desviacion_std_muestral, muestra):
     return (media_muestral - media_poblacional) / (desviacion_std_muestral / np.sqrt(muestra));
 
-def dos_colas(media_muestral, media_poblacional, desviacion_std_muestral, muestra,  grados_libertad, alpha, valor_esperado):
+def dos_colas(media_muestral, media_poblacional, desviacion_std_muestral, muestra, alpha, valor_esperado):
+
+    grados_libertad = muestra - 1;
 
     t_prueba = valor_observado(media_muestral, media_poblacional, desviacion_std_muestral, muestra);
 
