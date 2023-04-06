@@ -6,7 +6,7 @@ def dos_colas(muestra, desviacion_std_muestral, desviacion_std_poblacional, alph
 
     grados_libertad = muestra - 1
 
-    chi2_prueba = (muestra - 1) * (desviacion_std_muestral / desviacion_std_poblacional) ** 2
+    chi2_prueba = valor_observado(muestra, desviacion_std_muestral, desviacion_std_poblacional);
 
     # definimos el rango de valores para la variable aleatoria
     x = np.linspace(0, chi2.ppf(0.999, grados_libertad), 1000)
@@ -53,3 +53,6 @@ def dos_colas(muestra, desviacion_std_muestral, desviacion_std_poblacional, alph
     # mostramos la leyenda
     ax.legend(loc="best")
     plt.savefig('grafica.jpg')
+
+def valor_observado(muestra, desviacion_std_muestral, desviacion_std_poblacional):
+    return (muestra - 1) * (desviacion_std_muestral / desviacion_std_poblacional) ** 2;

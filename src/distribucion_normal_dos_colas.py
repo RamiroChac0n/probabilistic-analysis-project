@@ -4,7 +4,7 @@ from scipy.stats import norm
 
 def dos_colas(media_muestral, media_poblacional, desviacion_std_poblacional, muestra, alpha, valor_esperado):
 
-    z_prueba = (media_muestral - media_poblacional) / (desviacion_std_poblacional / np.sqrt(muestra))
+    z_prueba = valor_observado(media_muestral, media_poblacional, desviacion_std_poblacional, muestra);
 
     # Crear un conjunto de valores x en el rango de -3 a 3 con incrementos de 0.1
     x = np.arange(-4, 4, 0.1)
@@ -66,7 +66,7 @@ def dos_colas_proporciones(proporcion_muestral, proporcion_poblacional, muestra,
     p_m = proporcion_muestral
     n = muestra
     
-    z_prueba = (p_m - p) / np.sqrt((p * q) / n)
+    z_prueba = valor_observado_proporciones(p_m, p, n, q);
     
     # Crear un conjunto de valores x en el rango de -3 a 3 con incrementos de 0.1
     x = np.arange(-4, 4, 0.1)
@@ -117,3 +117,9 @@ def dos_colas_proporciones(proporcion_muestral, proporcion_poblacional, muestra,
     plt.ylabel('Densidad de probabilidad')
     plt.title('Distribución normal estándar')
     plt.savefig('grafica.jpg')
+
+def valor_observado_proporciones(p_m, p, n, q):
+    return (p_m - p) / np.sqrt((p * q) / n);
+
+def valor_observado(x_m, mu, sigma, n):
+    return (x_m - mu) / (sigma / np.sqrt(n));

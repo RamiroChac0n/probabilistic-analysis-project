@@ -4,7 +4,7 @@ from scipy.stats import t
 
 def dos_colas(media_muestral, media_poblacional, desviacion_std_muestral, muestra,  grados_libertad, alpha, valor_esperado):
 
-    t_prueba = (media_muestral - media_poblacional) / (desviacion_std_muestral / np.sqrt(muestra))
+    t_prueba = valor_observado(media_muestral, media_poblacional, desviacion_std_muestral, muestra);
 
     # Crear un conjunto de valores x en el rango de -4 a 4 con incrementos de 0.1
     x = np.arange(-4, 4, 0.1)
@@ -52,3 +52,6 @@ def dos_colas(media_muestral, media_poblacional, desviacion_std_muestral, muestr
 
     plt.legend()
     plt.savefig('grafica.jpg')
+
+def valor_observado(media_muestral, media_poblacional, desviacion_std_muestral, muestra):
+    return (media_muestral - media_poblacional) / (desviacion_std_muestral / np.sqrt(muestra));
