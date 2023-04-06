@@ -1,12 +1,18 @@
 from fpdf import FPDF
-def fun_pdf(): 
+from tkinter import *
 
+
+muT = "\u03BC"
+
+def imprimir(nocolas, alfa, mp, mm, n, desvest):
+    colas = int(nocolas)
+    medp = str(mp)
+    alpha = str(alfa)
+    alpha2 = str(alfa*100)
 
     #P : portrait (vertical)
     #L : landscape (horizontal)
-
     #A4 : 210x297mm
-
 
     pdf = FPDF(orientation = 'P',unit = 'mm', format = 'A4')
 
@@ -30,11 +36,23 @@ def fun_pdf():
     pdf.text(x = 65,y = 65, txt = 'Kenat Jesiel Pérez Lucas                 202040366')
 
     #Hoja del problema
-    pdf.text(x = 30,y = 80, txt = 'Prueba')
+    pdf.text(x = 30,y = 80, txt = 'Paso 1: Formulacion de hipotesis')
+    print("Entrada al if imprimir")
+    if(colas == 1):
+        pdf.text(x = 30,y = 85, txt = 'Ho: mu = ')
+        pdf.text(x = 53,y = 85,txt = medp)
+        pdf.text(x = 30,y = 90, txt = 'Ho: mu != ')
+        pdf.text(x = 53,y = 90,txt = medp)
+        print("Salida del if imprimir")
+    pdf.text(x = 30,y = 95, txt = 'Paso 2: Nivel de significancia alpha')
+    pdf.text(x = 30,y = 100, txt = 'alpha = ')
+    pdf.text(x = 47,y = 100, txt = alpha)
+    pdf.text(x = 57,y = 100, txt = ' = ')
+    pdf.text(x = 63,y = 100, txt = alpha2)
+    pdf.text(x = 70,y = 100, txt = '%')
+
     #IMAGEN
     pdf.image('img/logotipo-cunori-transparente.png',x = 27,y = 29,w = 33, h = 33)
     #pdf.image('prueba.jpg',x = 50,y = 175,w = 120, h = 90)
 
     pdf.output('hoja.pdf')
-
-fun_pdf()
