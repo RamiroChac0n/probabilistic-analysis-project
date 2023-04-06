@@ -5,6 +5,7 @@ import numpy as np
 from math import *
 from scipy.stats import norm, t, chi2
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import pruebaPDF
 
 root = Tk()
 
@@ -98,13 +99,14 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
       alpha = alfa
       zp = round((mm - mp)/(desvest/sqrt(n)),4)
       pvalor = round(norm.sf(abs (zp)),4)
+
+      # Calculo valores críticos de Z
+      z_critico_inferior = round(norm.ppf(alpha/2),4)
+      z_critico_superior = round(norm.ppf(1-alpha/2),4)
       if(nocolas == 1):
             # Hipotesis
             h0 = "Ho: μ = "+str(mp)
             h1 = "H1: μ ≠ "+str(mp)
-            # Calculo valores críticos de Z
-            z_critico_inferior = round(norm.ppf(alpha/2),4)
-            z_critico_superior = round(norm.ppf(1-alpha/2),4)
             # Diseño area de rechazo y no rechazo
             anr = "Área de no rechazo: entre los valores de Zcrítico ("+str(z_critico_inferior)+", "+str(z_critico_superior)+")"
             ar = "Área de rechazo: a la izquierda de Zc1 = "+str(z_critico_inferior)+" y a la derecha \nde Zc2 = "+str(z_critico_superior)
@@ -125,8 +127,6 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
             # Hipotesis
             h0 = "Ho: μ >= "+str(mp)
             h1 = "H1: μ < "+str(mp)
-            # Calculo valores críticos de Z
-            z_critico_inferior = round(norm.ppf(alpha),4)
             # Diseño area de rechazo y no rechazo
             anr = "Área de no rechazo: a la derecha del valor de Zcrítico = "+str(z_critico_inferior)
             ar = "Área de no rechazo: a la izquierda del valor de Zcrítico = "+str(z_critico_inferior)
@@ -146,8 +146,6 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
             # Hipotesis
             h0 = "Ho: μ <= "+str(mp)
             h1 = "H1: μ > "+str(mp)
-            # Calculo valores críticos de Z
-            z_critico_superior = round(norm.ppf(1-alpha),4)
             # Diseño area de rechazo y no rechazo
             anr = "Área de no rechazo: a la izquierda del valor de Zcrítico = "+str(z_critico_superior)
             ar = "Área de no rechazo: a la derecha del valor de Zcrítico = "+str(z_critico_superior)
@@ -181,6 +179,7 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
       Label(vcn, text= "Paso 4: regla de decisión",
             font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=245)
       fig = graphcn(nocolas, alfa, mp, mm, n, desvest, 0)
+      plt.savefig('img/grafica.jpg')
       canvas = FigureCanvasTkAgg(fig, master=vcn)
       canvas.draw()
 	# placing the canvas on the Tkinter window
@@ -201,6 +200,7 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
       Label(vcn, text= "pvalor = "+str(pvalor),
             font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=130)
       fig2 = graphcn(nocolas, alfa, mp, mm, n, desvest, 1)
+      plt.savefig('img/grafica2.jpg')
       canvas = FigureCanvasTkAgg(fig2, master=vcn)
       canvas.draw()
 	# placing the canvas on the Tkinter window
@@ -215,7 +215,7 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
             font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=780)
       Button(vcn, text="Guardar PDF",font=("bold", 15), bg="#424949",
             foreground="white", command="").place(x=1075, y=870)
-
+      pruebaPDF.imprimir1(nocolas, alfa, mp, mm, n, desvest,z_critico_inferior,z_critico_superior,zp,pvalor)
 def wcn():
       # Crear una ventana secundaria.
       vcn = Toplevel()
