@@ -2,6 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import t
 
+def valor_observado(media_muestral, media_poblacional, desviacion_std_muestral, muestra):
+    return (media_muestral - media_poblacional) / (desviacion_std_muestral / np.sqrt(muestra));
+
 def dos_colas(media_muestral, media_poblacional, desviacion_std_muestral, muestra,  grados_libertad, alpha, valor_esperado):
 
     t_prueba = valor_observado(media_muestral, media_poblacional, desviacion_std_muestral, muestra);
@@ -52,6 +55,3 @@ def dos_colas(media_muestral, media_poblacional, desviacion_std_muestral, muestr
 
     plt.legend()
     plt.savefig('grafica.jpg')
-
-def valor_observado(media_muestral, media_poblacional, desviacion_std_muestral, muestra):
-    return (media_muestral - media_poblacional) / (desviacion_std_muestral / np.sqrt(muestra));

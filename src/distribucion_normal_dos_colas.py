@@ -2,6 +2,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import norm
 
+def valor_observado_proporciones(p_m, p, n, q):
+    return (p_m - p) / np.sqrt((p * q) / n);
+
+def valor_observado(x_m, mu, sigma, n):
+    return (x_m - mu) / (sigma / np.sqrt(n));
+
 def dos_colas(media_muestral, media_poblacional, desviacion_std_poblacional, muestra, alpha, valor_esperado):
 
     z_prueba = valor_observado(media_muestral, media_poblacional, desviacion_std_poblacional, muestra);
@@ -56,8 +62,7 @@ def dos_colas(media_muestral, media_poblacional, desviacion_std_poblacional, mue
     plt.ylabel('Densidad de probabilidad')
     plt.title('Distribución normal estándar')
     plt.savefig('grafica.jpg')
-    #plt.show()
-#dos_colas(16.15, 16, 1.20, 65, 0.05, True)
+
 
 def dos_colas_proporciones(proporcion_muestral, proporcion_poblacional, muestra, alpha, valor_esperado):
     
@@ -117,9 +122,3 @@ def dos_colas_proporciones(proporcion_muestral, proporcion_poblacional, muestra,
     plt.ylabel('Densidad de probabilidad')
     plt.title('Distribución normal estándar')
     plt.savefig('grafica.jpg')
-
-def valor_observado_proporciones(p_m, p, n, q):
-    return (p_m - p) / np.sqrt((p * q) / n);
-
-def valor_observado(x_m, mu, sigma, n):
-    return (x_m - mu) / (sigma / np.sqrt(n));

@@ -2,6 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import chi2
 
+def valor_observado(muestra, desviacion_std_muestral, desviacion_std_poblacional):
+    return (muestra - 1) * (desviacion_std_muestral / desviacion_std_poblacional) ** 2;
+
 def una_cola_derecha(muestra, desviacion_std_muestral, desviacion_std_poblacional, alpha, valor_esperado):
     
     grados_libertad = muestra - 1
@@ -45,6 +48,3 @@ def una_cola_derecha(muestra, desviacion_std_muestral, desviacion_std_poblaciona
     # mostramos la leyenda
     ax.legend(loc="best")
     plt.savefig('grafica.jpg')
-
-def valor_observado(muestra, desviacion_std_muestral, desviacion_std_poblacional):
-    return (muestra - 1) * (desviacion_std_muestral / desviacion_std_poblacional) ** 2;

@@ -2,6 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import t
 
+def valor_observado(media_muestral, media_poblacional, desviacion_std_muestral, muestra):
+    return (media_muestral - media_poblacional) / (desviacion_std_muestral / np.sqrt(muestra));
+
 def una_cola_izquierda(media_muestral, media_poblacional, desviacion_std_muestral, muestra, alpha, valor_esperado):
 
     grados_libertad = len(muestra) - 1
@@ -38,6 +41,3 @@ def una_cola_izquierda(media_muestral, media_poblacional, desviacion_std_muestra
 
     plt.legend()
     plt.savefig('grafica.jpg')
-
-def valor_observado(media_muestral, media_poblacional, desviacion_std_muestral, muestra):
-    return (media_muestral - media_poblacional) / (desviacion_std_muestral / np.sqrt(muestra));
