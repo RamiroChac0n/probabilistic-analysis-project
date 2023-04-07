@@ -100,13 +100,16 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
       zp = round((mm - mp)/(desvest/sqrt(n)),4)
       pvalor = round(norm.sf(abs (zp)),4)
 
-      # Calculo valores críticos de Z
-      z_critico_inferior = round(norm.ppf(alpha/2),4)
-      z_critico_superior = round(norm.ppf(1-alpha/2),4)
+      # Calculo valores críticos de Z si no existiera z_critico_inferior
+      z_critico_inferior = 0
+      z_critico_superior = 0
       if(nocolas == 1):
             # Hipotesis
             h0 = "Ho: μ = "+str(mp)
             h1 = "H1: μ ≠ "+str(mp)
+            # Calculo valores críticos de Z
+            z_critico_inferior = round(norm.ppf(alpha/2),4)
+            z_critico_superior = round(norm.ppf(1-alpha/2),4)
             # Diseño area de rechazo y no rechazo
             anr = "Área de no rechazo: entre los valores de Zcrítico ("+str(z_critico_inferior)+", "+str(z_critico_superior)+")"
             ar = "Área de rechazo: a la izquierda de Zc1 = "+str(z_critico_inferior)+" y a la derecha \nde Zc2 = "+str(z_critico_superior)
@@ -127,6 +130,8 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
             # Hipotesis
             h0 = "Ho: μ >= "+str(mp)
             h1 = "H1: μ < "+str(mp)
+            # Calculo valores críticos de Z
+            z_critico_inferior = round(norm.ppf(alpha),4)
             # Diseño area de rechazo y no rechazo
             anr = "Área de no rechazo: a la derecha del valor de Zcrítico = "+str(z_critico_inferior)
             ar = "Área de no rechazo: a la izquierda del valor de Zcrítico = "+str(z_critico_inferior)
@@ -142,10 +147,11 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
                   r2 = "Se rechaza la Hipótesis nula H0, ya que Zp = "+str(zp)+" es \nmenor que Zcrítico = "+str(z_critico_inferior)
                   r3 = "Se rechaza la Hipótesis nula H0, ya que el \npvalor = "+str(pvalor)+" < α = "+str(alpha)
       if(nocolas == 3):
-      
             # Hipotesis
             h0 = "Ho: μ <= "+str(mp)
             h1 = "H1: μ > "+str(mp)
+            # Calculo valores críticos de Z
+            z_critico_superior = round(norm.ppf(1-alpha),4)
             # Diseño area de rechazo y no rechazo
             anr = "Área de no rechazo: a la izquierda del valor de Zcrítico = "+str(z_critico_superior)
             ar = "Área de no rechazo: a la derecha del valor de Zcrítico = "+str(z_critico_superior)
@@ -215,7 +221,7 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
             font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=780)
       Button(vcn, text="Guardar PDF",font=("bold", 15), bg="#424949",
             foreground="white", command="").place(x=1075, y=870)
-      pruebaPDF.imprimir1(nocolas, alfa, mp, mm, n, desvest,z_critico_inferior,z_critico_superior,zp,pvalor)
+      pruebaPDF.curvanormal(nocolas, alfa, mp, mm, n, desvest,z_critico_inferior,z_critico_superior,zp,pvalor)
 def wcn():
       # Crear una ventana secundaria.
       vcn = Toplevel()
@@ -369,7 +375,9 @@ def tstudent(nocolas, alfa, mp, mm, n, desvest):
     #calculo tprueba
     tp = round((mm - mp)/(desvest/sqrt(n)),4)
     pvalor = round(t.sf(abs (tp), gl),4)
-
+    # Calculo valores críticos de Z
+    t_critico_inferior = 0
+    t_critico_superior = 0
     if(nocolas == 1):
         # Hipotesis
         h0 = "Ho: μ = "+str(mp)
@@ -445,6 +453,7 @@ def tstudent(nocolas, alfa, mp, mm, n, desvest):
     Label(vts, text="Grados de libertad g.l. = muestra(n) - 1 = "+str(n)+" - 1 = "+str(n-1),
           font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=280)
     fig = graphtst(nocolas, alfa, mp, mm, n, desvest, 0)
+    plt.savefig('img/grafica.jpg')
     canvas = FigureCanvasTkAgg(fig, master=vts)
     canvas.draw()
 	# placing the canvas on the Tkinter window
@@ -465,6 +474,7 @@ def tstudent(nocolas, alfa, mp, mm, n, desvest):
     Label(vts, text= "",
           font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=130)
     fig2 = graphtst(nocolas, alfa, mp, mm, n, desvest, 1)
+    plt.savefig('img/grafica2.jpg')
     canvas = FigureCanvasTkAgg(fig2, master=vts)
     canvas.draw()
 	# placing the canvas on the Tkinter window
@@ -479,7 +489,7 @@ def tstudent(nocolas, alfa, mp, mm, n, desvest):
           font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=780)
     Button(vts, text="Guardar PDF",font=("bold", 15), bg="#424949",
            foreground="white", command="").place(x=1075, y=870)
-
+    pruebaPDF.tstudent(nocolas, alfa, mp, mm, n, desvest,t_critico_inferior,t_critico_superior,tp,pvalor)
 def wts():
     # Crear una ventana secundaria.
     vts = Toplevel()
