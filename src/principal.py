@@ -220,8 +220,8 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
       Label(vcn, text= "3. "+r3,
             font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=780)
       Button(vcn, text="Guardar PDF",font=("bold", 15), bg="#424949",
-            foreground="white", command="").place(x=1075, y=870)
-      pruebaPDF.curvanormal(nocolas, alfa, mp, mm, n, desvest,z_critico_inferior,z_critico_superior,zp,pvalor)
+            foreground="white", command=pruebaPDF.curvanormal(nocolas, alfa, mp, mm, n, desvest,z_critico_inferior,z_critico_superior,zp,pvalor)).place(x=1075, y=870)
+      
 def wcn():
       # Crear una ventana secundaria.
       vcn = Toplevel()
@@ -488,8 +488,8 @@ def tstudent(nocolas, alfa, mp, mm, n, desvest):
     Label(vts, text= "3. "+r3,
           font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=780)
     Button(vts, text="Guardar PDF",font=("bold", 15), bg="#424949",
-           foreground="white", command="").place(x=1075, y=870)
-    pruebaPDF.tstudent(nocolas, alfa, mp, mm, n, desvest,t_critico_inferior,t_critico_superior,tp,pvalor)
+           foreground="white", command=pruebaPDF.tstudent(nocolas, alfa, mp, mm, n, desvest,t_critico_inferior,t_critico_superior,tp,pvalor)).place(x=1075, y=870)
+    
 def wts():
     # Crear una ventana secundaria.
     vts = Toplevel()
@@ -644,6 +644,9 @@ def propmuestral(nocolas, alfa, pm, pp, n):
     q = round(1-pp,2) 
     zp = round((pm - pp)/(sqrt((pp*q)/n)),4)
     pvalor = round(norm.sf(abs (zp)),4)
+    # Calculo valores críticos de Z
+    z_critico_inferior = 0
+    z_critico_superior = 0
 
     if(nocolas == 1):
         # Hipotesis
@@ -733,6 +736,7 @@ def propmuestral(nocolas, alfa, pm, pp, n):
     Label(vpm, text= "Paso 4: regla de decisión",
           font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=350)
     fig = graphpm(nocolas, alfa, pm, pp, n, 0)
+    plt.savefig('img/grafica.jpg')
     canvas = FigureCanvasTkAgg(fig, master=vpm)
     canvas.draw()
 	# placing the canvas on the Tkinter window
@@ -753,6 +757,7 @@ def propmuestral(nocolas, alfa, pm, pp, n):
     Label(vpm, text= "pvalor = "+str(pvalor),
           font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=130)
     fig2 = graphpm(nocolas, alfa, pm, pp, n, 1)
+    plt.savefig('img/grafica2.jpg')
     canvas = FigureCanvasTkAgg(fig2, master=vpm)
     canvas.draw()
 	# placing the canvas on the Tkinter window
@@ -766,7 +771,8 @@ def propmuestral(nocolas, alfa, pm, pp, n):
     Label(vpm, text= "3. "+r3,
           font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=780)
     Button(vpm, text="Guardar PDF",font=("bold", 15), bg="#424949",
-           foreground="white", command="").place(x=1075, y=870)
+           foreground="white", command=pruebaPDF.propmuestral(nocolas, alfa, pm, pp, n,z_critico_inferior,z_critico_superior,q,zp,pvalor)).place(x=1075, y=870)
+    
 
 
 def wpm():
@@ -925,7 +931,11 @@ def chicuadrado(nocolas, alfa, n, varm, varp):
       # calculo del X^2prueba
       x2 = round(((n - 1)*(varm))/varp,4)
       # calculo pvalor
+      pvalor = 0
       pvalor = round(chi2.sf(abs (x2),gl),4)
+      # Calculo valores críticos de X^2
+      left_critical_value = 0
+      right_critical_value = 0
 
       if(nocolas == 1):
             # Hipotesis
@@ -980,6 +990,7 @@ def chicuadrado(nocolas, alfa, n, varm, varp):
       Label(vcc, text="Grados de libertad g.l. = muestra(n) - 1 = "+str(n)+" - 1 = "+str(n-1),
                  font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=280)
       fig = graphchicuadrado(nocolas, alpha, n, varm, varp, 0)
+      plt.savefig('img/grafica.jpg')
       canvas = FigureCanvasTkAgg(fig, master=vcc)
       canvas.draw()
 	# placing the canvas on the Tkinter window
@@ -1000,6 +1011,7 @@ def chicuadrado(nocolas, alfa, n, varm, varp):
       Label(vcc, text= "",
                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=130)
       fig2 = graphchicuadrado(nocolas, alpha, n, varm, varp, 1)
+      plt.savefig('img/grafica2.jpg')
       canvas = FigureCanvasTkAgg(fig2, master=vcc)
       canvas.draw()
 	# placing the canvas on the Tkinter window
@@ -1040,7 +1052,8 @@ def chicuadrado(nocolas, alfa, n, varm, varp):
       Label(vcc, text= "3. "+r3,
                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=780)
       Button(vcc, text="Guardar PDF",font=("bold", 15), bg="#424949",
-           foreground="white", command="").place(x=1075, y=870)
+           foreground="white", command=pruebaPDF.chicuadrado(nocolas, alfa, varm, n,left_critical_value,right_critical_value,varp,x2,pvalor)).place(x=1075, y=870)
+      
 
 def wcc():
       # Crear una ventana secundaria.
