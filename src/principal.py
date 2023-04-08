@@ -220,7 +220,7 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
       Label(vcn, text= "3. "+r3,
             font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=780)
       Button(vcn, text="Guardar PDF",font=("bold", 15), bg="#424949",
-            foreground="white", command=pruebaPDF.curvanormal(nocolas, alfa, mp, mm, n, desvest,z_critico_inferior,z_critico_superior,zp,pvalor)).place(x=1075, y=870)
+            foreground="white", command=lambda:[pruebaPDF.curvanormal(nocolas, alfa, mp, mm, n, desvest,z_critico_inferior,z_critico_superior,zp,pvalor)]).place(x=1075, y=870)
       
 def wcn():
       # Crear una ventana secundaria.
@@ -488,7 +488,7 @@ def tstudent(nocolas, alfa, mp, mm, n, desvest):
     Label(vts, text= "3. "+r3,
           font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=780)
     Button(vts, text="Guardar PDF",font=("bold", 15), bg="#424949",
-           foreground="white", command=pruebaPDF.tstudent(nocolas, alfa, mp, mm, n, desvest,t_critico_inferior,t_critico_superior,tp,pvalor)).place(x=1075, y=870)
+           foreground="white", command=lambda:[pruebaPDF.tstudent(nocolas, alfa, mp, mm, n, desvest,t_critico_inferior,t_critico_superior,tp,pvalor)]).place(x=1075, y=870)
     
 def wts():
     # Crear una ventana secundaria.
@@ -771,7 +771,7 @@ def propmuestral(nocolas, alfa, pm, pp, n):
     Label(vpm, text= "3. "+r3,
           font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=780)
     Button(vpm, text="Guardar PDF",font=("bold", 15), bg="#424949",
-           foreground="white", command=pruebaPDF.propmuestral(nocolas, alfa, pm, pp, n,z_critico_inferior,z_critico_superior,q,zp,pvalor)).place(x=1075, y=870)
+           foreground="white", command=lambda:[pruebaPDF.propmuestral(nocolas, alfa, pm, pp, n,z_critico_inferior,z_critico_superior,q,zp,pvalor)]).place(x=1075, y=870)
     
 
 
@@ -1052,7 +1052,7 @@ def chicuadrado(nocolas, alfa, n, varm, varp):
       Label(vcc, text= "3. "+r3,
                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=780)
       Button(vcc, text="Guardar PDF",font=("bold", 15), bg="#424949",
-           foreground="white", command=pruebaPDF.chicuadrado(nocolas, alfa, varm, n,left_critical_value,right_critical_value,varp,x2,pvalor)).place(x=1075, y=870)
+           foreground="white", command=lambda:[pruebaPDF.chicuadrado(nocolas, alfa, varm, n,left_critical_value,right_critical_value,varp,x2,pvalor)]).place(x=1075, y=870)
       
 
 def wcc():
