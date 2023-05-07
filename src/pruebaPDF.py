@@ -1,5 +1,6 @@
 from fpdf import FPDF
 from tkinter import *
+from tkinter import filedialog
 
 
 muT = "\u03BC"
@@ -197,7 +198,10 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest,Zinf,Zsup,zp,pvalor):
             pdf.text(x = 90,y = 195, txt = str(alfa))
 
     pdf.image('img/grafica2.jpg',x = 40,y = 80,w = 130, h = 80)
-    pdf.output('hoja.pdf')
+    archivo = filedialog.asksaveasfilename()
+    print(archivo)
+    pdf.output(archivo+".pdf")
+    
 
 def tstudent(nocolas, alfa, mp, mm, n, desvest,Zinf,Zsup,zp,pvalor):
     print('entrada a tstudent')
@@ -404,7 +408,9 @@ def tstudent(nocolas, alfa, mp, mm, n, desvest,Zinf,Zsup,zp,pvalor):
             pdf.text(x = 90,y = 195, txt = str(alfa))
 
     pdf.image('img/grafica2.jpg',x = 40,y = 80,w = 130, h = 80)
-    pdf.output('hoja.pdf')
+    archivo = filedialog.asksaveasfilename()
+    print(archivo)
+    pdf.output(archivo+".pdf")
 
 
 def propmuestral(nocolas, alfa, pm, pp, n,Zinf,Zsup,q,zp,pvalor):
@@ -601,7 +607,9 @@ def propmuestral(nocolas, alfa, pm, pp, n,Zinf,Zsup,q,zp,pvalor):
             pdf.text(x = 90,y = 195, txt = str(alfa))
 
     pdf.image('img/grafica2.jpg',x = 40,y = 80,w = 130, h = 80)
-    pdf.output('hoja.pdf')
+    archivo = filedialog.asksaveasfilename()
+    print(archivo)
+    pdf.output(archivo+".pdf")
 
 def chicuadrado(nocolas, alfa, varm, n,Zinf,Zsup,varp,x2,pvalor):
     gl = str(n-1)
@@ -800,4 +808,6 @@ def chicuadrado(nocolas, alfa, varm, n,Zinf,Zsup,varp,x2,pvalor):
             pdf.text(x = 90,y = 195, txt = str(alfa))
 
     pdf.image('img/grafica2.jpg',x = 40,y = 80,w = 130, h = 80)
-    pdf.output('hoja.pdf')
+    archivo = filedialog.asksaveasfilename()
+    print(archivo)
+    pdf.output(archivo+".pdf")

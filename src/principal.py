@@ -131,6 +131,7 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
             h1 = "H1: μ < "+str(mp)
             # Calculo valores críticos de Z
             z_critico_inferior = round(norm.ppf(alpha),4)
+            z_critico_superior = 0
             # Diseño area de rechazo y no rechazo
             anr = "Área de no rechazo: a la derecha del valor de Zcrítico = "+str(z_critico_inferior)
             ar = "Área de no rechazo: a la izquierda del valor de Zcrítico = "+str(z_critico_inferior)
@@ -150,6 +151,7 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
             h0 = "Ho: μ <= "+str(mp)
             h1 = "H1: μ > "+str(mp)
             # Calculo valores críticos de Z
+            z_critico_inferior = 0
             z_critico_superior = round(norm.ppf(1-alpha),4)
             # Diseño area de rechazo y no rechazo
             anr = "Área de no rechazo: a la izquierda del valor de Zcrítico = "+str(z_critico_superior)
@@ -405,6 +407,7 @@ def tstudent(nocolas, alfa, mp, mm, n, desvest):
             h1 = "H1: μ < "+str(mp)
             # Calculo valores críticos de Z
             t_critico_inferior = round(t.ppf(alpha, gl),4)
+            t_critico_superior = 0
             # Diseño area de rechazo y no rechazo
             anr = "Área de no rechazo: a la derecha del valor de tcrítico = "+str(t_critico_inferior)
             ar = "Área de no rechazo: a la izquierda del valor de tcrítico = "+str(t_critico_inferior)
@@ -421,6 +424,7 @@ def tstudent(nocolas, alfa, mp, mm, n, desvest):
             h0 = "Ho: μ <= "+str(mp)
             h1 = "H1: μ > "+str(mp)
             # Calculo valores críticos de Z
+            t_critico_inferior = 0
             t_critico_superior = round(t.ppf(1 - (alpha), gl),4)
             # Diseño area de rechazo y no rechazo
             anr = "Área de no rechazo: a la izquierda del valor de tcrítico = "+str(t_critico_superior)
@@ -680,6 +684,7 @@ def propmuestral(nocolas, alfa, pm, pp, n):
             h1 = "H1: μ < "+str(pp)
             # Calculo valores críticos de Z
             z_critico_inferior = round(norm.ppf(alpha),4)
+            z_critico_superior = 0
             # Diseño area de rechazo y no rechazo
             anr = "Área de no rechazo: a la derecha del valor de Zcrítico = "+str(z_critico_inferior)
             ar = "Área de no rechazo: a la izquierda del valor de Zcrítico = "+str(z_critico_inferior)
@@ -699,6 +704,7 @@ def propmuestral(nocolas, alfa, pm, pp, n):
             h0 = "Ho: μ <= "+str(pp)
             h1 = "H1: μ > "+str(pp)
             # Calculo valores críticos de Z
+            z_critico_inferior = 0
             z_critico_superior = round(norm.ppf(1-alpha),4)
             # Diseño area de rechazo y no rechazo
             anr = "Área de no rechazo: a la izquierda del valor de Zcrítico = "+str(z_critico_superior)
@@ -967,6 +973,7 @@ def chicuadrado(nocolas, alfa, n, varm, varp):
             h1 = "H1: σ^2 < "+str(varp)
             # Calculo valores críticos de X^2
             left_critical_value = round(chi2.ppf(alpha, gl),4)
+            right_critical_value = 0
             # Diseño area de rechazo y no rechazo
             anr = "Área de no rechazo: a la derecha del valor de X^2crítico = "+str(left_critical_value)
             ar = "Área de no rechazo: a la izquierda del valor de X^2crítico = "+str(left_critical_value)
@@ -984,6 +991,7 @@ def chicuadrado(nocolas, alfa, n, varm, varp):
             h0 = "Ho: σ^2 <= "+str(varp)
             h1 = "H1: σ^2 > "+str(varp)
             # Calculo valores críticos de X^2
+            left_critical_value = 0
             right_critical_value = round(chi2.ppf(1 - alpha, gl),4)
             # Diseño area de rechazo y no rechazo
             anr = "Área de no rechazo: a la izquierda del valor de X^2crítico = "+str(right_critical_value)
