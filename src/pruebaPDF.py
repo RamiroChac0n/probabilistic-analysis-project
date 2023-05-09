@@ -1,7 +1,7 @@
 from fpdf import FPDF
 from tkinter import *
 from tkinter import filedialog
-
+from tkinter import messagebox as mb
 
 muT = "\u03BC"
 
@@ -201,6 +201,7 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest,Zinf,Zsup,zp,pvalor):
     archivo = filedialog.asksaveasfilename()
     print(archivo)
     pdf.output(archivo+".pdf")
+    mb.showinfo("Guardado", "El PDF se guardó correctamente en la ruta designada")
     
 
 def tstudent(nocolas, alfa, mp, mm, n, desvest,Zinf,Zsup,zp,pvalor):
@@ -411,7 +412,7 @@ def tstudent(nocolas, alfa, mp, mm, n, desvest,Zinf,Zsup,zp,pvalor):
     archivo = filedialog.asksaveasfilename()
     print(archivo)
     pdf.output(archivo+".pdf")
-
+    mb.showinfo("Guardado", "El PDF se guardó correctamente en la ruta designada")
 
 def propmuestral(nocolas, alfa, pm, pp, n,Zinf,Zsup,q,zp,pvalor):
     alpha2 = str(alfa*100)
@@ -610,6 +611,7 @@ def propmuestral(nocolas, alfa, pm, pp, n,Zinf,Zsup,q,zp,pvalor):
     archivo = filedialog.asksaveasfilename()
     print(archivo)
     pdf.output(archivo+".pdf")
+    mb.showinfo("Guardado", "El PDF se guardó correctamente en la ruta designada")
 
 def chicuadrado(nocolas, alfa, varm, n,Zinf,Zsup,varp,x2,pvalor):
     gl = str(n-1)
@@ -811,3 +813,4 @@ def chicuadrado(nocolas, alfa, varm, n,Zinf,Zsup,varp,x2,pvalor):
     archivo = filedialog.asksaveasfilename()
     print(archivo)
     pdf.output(archivo+".pdf")
+    mb.showinfo("Guardado", "El PDF se guardó correctamente en la ruta designada")
