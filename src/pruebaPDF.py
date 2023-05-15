@@ -26,10 +26,9 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest,Zinf,Zsup,zp,pvalor):
 
     #TEXTO
     pdf.set_font('Arial','',14)
+    pdf.text(x = 195,y = 15, txt = '1')
     pdf.text(x = 65,y = 35, txt = 'Analisis Probabilistico')
-    pdf.text(x = 65,y = 40, txt = 'Ing. Manuel Eduardo Alvarez Ruiz')
-    pdf.text(x = 65,y = 45, txt = 'Proyecto Programa prueba de hipotesis')
-    pdf.text(x = 65,y = 50, txt = 'Prueba de hipotesis: Curva normal')
+    pdf.text(x = 65,y = 45, txt = 'Prueba de hipotesis: Curva normal')
 
     #Hoja del problema
     pdf.text(x = 30,y = 80, txt = 'Paso 1: Formulacion de hipotesis')
@@ -84,6 +83,7 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest,Zinf,Zsup,zp,pvalor):
     pdf.add_page()
     #RECTA
     pdf.rect(x = 25,y = 25,w = 165,h = 245)
+    pdf.text(x = 195,y = 15, txt = '2')
     pdf.text(x = 30,y = 35, txt = 'Paso 5: Prueba del estadistico')
     pdf.image('img/Estadistico_curvanormal.png',x = 30,y = 40,w = 40, h = 20)
     pdf.text(x = 70,y = 50, txt = ' =')
@@ -221,10 +221,9 @@ def tstudent(nocolas, alfa, mp, mm, n, desvest,Zinf,Zsup,zp,pvalor):
 
     #TEXTO
     pdf.set_font('Arial','',14)
+    pdf.text(x = 195,y = 15, txt = '1')
     pdf.text(x = 65,y = 35, txt = 'Analisis Probabilistico')
-    pdf.text(x = 65,y = 40, txt = 'Ing. Manuel Eduardo Alvarez Ruiz')
-    pdf.text(x = 65,y = 45, txt = 'Proyecto Programa prueba de hipotesis')
-    pdf.text(x = 65,y = 50, txt = 'Prueba de hipotesis: t-student')
+    pdf.text(x = 65,y = 45, txt = 'Prueba de hipotesis: t student')
 
     #Hoja del problema
     pdf.text(x = 30,y = 80, txt = 'Paso 1: Formulación de hipótesis')
@@ -284,6 +283,7 @@ def tstudent(nocolas, alfa, mp, mm, n, desvest,Zinf,Zsup,zp,pvalor):
     pdf.add_page()
     #RECTA
     pdf.rect(x = 25,y = 25,w = 165,h = 245)
+    pdf.text(x = 195,y = 15, txt = '2')
     pdf.text(x = 30,y = 35, txt = 'Paso 5: Prueba del estadistico')
     pdf.image('img/Estadistico_tstudent.png',x = 30,y = 40,w = 40, h = 20)
     pdf.text(x = 70,y = 50, txt = ' =')
@@ -426,10 +426,9 @@ def propmuestral(nocolas, alfa, pm, pp, n,Zinf,Zsup,q,zp,pvalor):
 
     #TEXTO
     pdf.set_font('Arial','',14)
+    pdf.text(x = 195,y = 15, txt = '1')
     pdf.text(x = 65,y = 35, txt = 'Analisis Probabilistico')
-    pdf.text(x = 65,y = 40, txt = 'Ing. Manuel Eduardo Alvarez Ruiz')
-    pdf.text(x = 65,y = 45, txt = 'Proyecto Programa prueba de hipotesis')
-    pdf.text(x = 65,y = 50, txt = 'Prueba de hipotesis: Proporción muestral')
+    pdf.text(x = 65,y = 45, txt = 'Prueba de hipotesis: Proporcion muestral')
 
     #Hoja del problema
     pdf.text(x = 30,y = 80, txt = 'Paso 1: Formulacion de hipotesis')
@@ -483,6 +482,7 @@ def propmuestral(nocolas, alfa, pm, pp, n,Zinf,Zsup,q,zp,pvalor):
     '''#-------------------------------------------------PAGINA 2------------------------------------------------'''
     pdf.add_page()
     #RECTA
+    pdf.text(x = 195,y = 15, txt = '2')
     pdf.rect(x = 25,y = 25,w = 165,h = 245)
     pdf.text(x = 30,y = 35, txt = 'Paso 5: Prueba del estadistico')
     pdf.image('img/Estadistico_proporciones.png',x = 30,y = 40,w = 40, h = 20)
@@ -622,10 +622,9 @@ def chicuadrado(nocolas, alfa, varm, n,Zinf,Zsup,varp,x2,pvalor):
 
     #TEXTO
     pdf.set_font('Arial','',14)
+    pdf.text(x = 195,y = 15, txt = '1')
     pdf.text(x = 65,y = 35, txt = 'Analisis Probabilistico')
-    pdf.text(x = 65,y = 40, txt = 'Ing. Manuel Eduardo Alvarez Ruiz')
-    pdf.text(x = 65,y = 45, txt = 'Proyecto Programa prueba de hipotesis')
-    pdf.text(x = 65,y = 50, txt = 'Prueba de hipotesis: Chi-cuadrado')
+    pdf.text(x = 65,y = 45, txt = 'Prueba de hipotesis: Chi-cuadrado')
 
     #Hoja del problema
     pdf.text(x = 30,y = 80, txt = 'Paso 1: Formulacion de hipotesis')
@@ -684,6 +683,7 @@ def chicuadrado(nocolas, alfa, varm, n,Zinf,Zsup,varp,x2,pvalor):
     pdf.add_page()
     #RECTA
     pdf.rect(x = 25,y = 25,w = 165,h = 245)
+    pdf.text(x = 195,y = 15, txt = '2')
     pdf.text(x = 30,y = 35, txt = 'Paso 5: Prueba del estadistico')
     pdf.image('img/Estadistico_chicuadrado.png',x = 30,y = 40,w = 40, h = 20)
     pdf.text(x = 70,y = 50, txt = ' =')
