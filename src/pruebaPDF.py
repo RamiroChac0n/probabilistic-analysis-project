@@ -644,10 +644,10 @@ def chicuadrado(nocolas, alfa, varm, n,Zinf,Zsup,varp,x2,pvalor):
         pdf.text(x = 161,y = 230, txt = ',')
         pdf.text(x = 166,y = 230, txt = str(Zsup))
         pdf.text(x = 186,y = 230, txt = ')')
-        pdf.text(x = 30,y = 235, txt = 'Área de rechazo: a la izquierda de X²critico 1 = ')
-        pdf.text(x = 125,y = 235, txt = str(Zinf))
-        pdf.text(x = 30,y = 240, txt = 'Area de rechazo: a la derecha de X²critico 2 = ')
-        pdf.text(x = 125,y = 240, txt = str(Zsup))
+        pdf.text(x = 30,y = 235, txt = 'Área de rechazo: a la izquierda de x²critico 1 = ')
+        pdf.text(x = 135,y = 235, txt = str(Zinf))
+        pdf.text(x = 30,y = 240, txt = 'Area de rechazo: a la derecha de x²critico 2 = ')
+        pdf.text(x = 135,y = 240, txt = str(Zsup))
     if(nocolas == 2):
         pdf.text(x = 30,y = 85, txt = 'Ho: x² >= ')
         pdf.text(x = 53,y = 85,txt = str(varp))
@@ -656,7 +656,9 @@ def chicuadrado(nocolas, alfa, varm, n,Zinf,Zsup,varp,x2,pvalor):
         pdf.text(x = 30,y = 135, txt = 'Paso 4: Regla de decision')
         pdf.image('img/grafica.jpg',x = 40,y = 145,w = 130, h = 80)
         pdf.text(x = 30,y = 230, txt = 'Área de no rechazo: a la derecha del valor de x²crítico = ')
-        pdf.text(x = 155,y = 230, txt = str(Zinf))
+        pdf.text(x = 165,y = 230, txt = str(Zinf))
+        pdf.text(x = 30,y = 235, txt = 'Área de rechazo: a la izquierda de x²critico = ')
+        pdf.text(x = 135,y = 235, txt = str(Zinf))
     if(nocolas == 3):
         pdf.text(x = 30,y = 85, txt = 'Ho: x² <= ')
         pdf.text(x = 53,y = 85,txt = str(varp))
@@ -666,6 +668,8 @@ def chicuadrado(nocolas, alfa, varm, n,Zinf,Zsup,varp,x2,pvalor):
         pdf.image('img/grafica.jpg',x = 40,y = 145,w = 130, h = 80)
         pdf.text(x = 30,y = 230, txt = 'Área de no rechazo: a la izquierda del valor de x²crítico = ')
         pdf.text(x = 155,y = 230, txt = str(Zsup))
+        pdf.text(x = 30,y = 240, txt = 'Area de rechazo: a la derecha de x²critico = ')
+        pdf.text(x = 135,y = 240, txt = str(Zsup))
     pdf.text(x = 30,y = 95, txt = 'Paso 2: Nivel de significancia alpha')
     pdf.text(x = 30,y = 100, txt = 'alpha = ')
     pdf.text(x = 47,y = 100, txt = str(alfa))
@@ -673,7 +677,7 @@ def chicuadrado(nocolas, alfa, varm, n,Zinf,Zsup,varp,x2,pvalor):
     pdf.text(x = 63,y = 100, txt = alpha2)
     pdf.text(x = 70,y = 100, txt = '%')
     pdf.text(x = 30,y = 105, txt = 'Paso 3: Estadistico de prueba')
-    pdf.image('img/Estadistico_chicuadrado.png',x = 30,y = 110,w = 40, h = 20)
+    pdf.image('img/Estadistico_chicuadrado.png',x = 30,y = 110,w = 45, h = 20)
 
 
     #IMAGEN
