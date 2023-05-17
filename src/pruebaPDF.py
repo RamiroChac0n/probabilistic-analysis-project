@@ -711,9 +711,8 @@ def chicuadrado(nocolas, alfa, varm, n,Zinf,Zsup,varp,x2,pvalor):
         pdf.text(x = 30,y = 170, txt = 'Paso 6: Respuesta')
         if(x2>Zinf and x2<Zsup):
             pdf.text(x = 30,y = 175, txt = '1. No se rechaza la hipótesis nula Ho')
-            pdf.text(x = 30,y = 180, txt = '2. No se rechaza la hipótesis nula Ho, ya que x²p = ')
-            pdf.text(x = 150,y = 180, txt = str(x2))
-            pdf.text(x = 30,y = 185, txt = 'se encuentra entre los valores de x²crítico (')
+            pdf.text(x = 30,y = 180, txt = "2. No se rechaza la hipótesis nula Ho, ya que x²p = "+str(x2)+"se encuentra entre los valores de x²crítico")
+            pdf.text(x = 30,y = 185, txt = "se encuentra entre los valores de x²crítico ("+str(Zinf)+"")
             pdf.text(x = 130,y = 185, txt = str(Zinf))
             pdf.text(x = 145,y = 185, txt = ',')
             pdf.text(x = 147,y = 185, txt = str(Zsup))
