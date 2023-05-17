@@ -284,17 +284,10 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
       plt.savefig('img/grafica2.jpg')
       canvas = FigureCanvasTkAgg(fig2, master=vcn)
       canvas.draw()
-<<<<<<< HEAD
 	# placing the canvas on the Tkinter window
       canvas.get_tk_widget().place(x=795,y=170)
       Label(vcn, text= "Paso 6: Respuestas",
             font=("bold", 17), bg="#2E4053",foreground="white").place(x=795, y=665)
-=======
-            # placing the canvas on the Tkinter window
-      canvas.get_tk_widget().place(x=815,y=170, width=600, height=400)
-      Label(vcn, text= "Paso 6: respuestas.",
-                  font=("bold", 17), bg="#2E4053",foreground="white").place(x=795, y=575)
->>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
       Label(vcn, text= "1. "+r1,
             font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=695)
       Label(vcn, text= "2. "+r2,
