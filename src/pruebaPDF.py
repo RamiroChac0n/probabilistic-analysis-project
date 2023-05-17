@@ -134,6 +134,7 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest,Zinf,Zsup,zp,pvalor):
     archivo = filedialog.asksaveasfilename()
     print(archivo)
     pdf.output(archivo+".pdf")
+    mb.showinfo("Guardado", "El PDF se guardó correctamente en la ruta designada")
     
 
 def tstudent(nocolas, alfa, mp, mm, n, desvest,Zinf,Zsup,zp,pvalor):
@@ -258,6 +259,7 @@ def tstudent(nocolas, alfa, mp, mm, n, desvest,Zinf,Zsup,zp,pvalor):
     archivo = filedialog.asksaveasfilename()
     print(archivo)
     pdf.output(archivo+".pdf")
+    mb.showinfo("Guardado", "El PDF se guardó correctamente en la ruta designada")
 
 
 def propmuestral(nocolas, alfa, pm, pp, n,Zinf,Zsup,q,zp,pvalor):
@@ -384,6 +386,7 @@ def propmuestral(nocolas, alfa, pm, pp, n,Zinf,Zsup,q,zp,pvalor):
     archivo = filedialog.asksaveasfilename()
     print(archivo)
     pdf.output(archivo+".pdf")
+    mb.showinfo("Guardado", "El PDF se guardó correctamente en la ruta designada")
 
 def chicuadrado(nocolas, alfa, varm, n,Zinf,Zsup,varp,x2,pvalor):
     gl = str(n-1)
