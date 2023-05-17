@@ -6,6 +6,12 @@ from math import *
 from scipy.stats import norm, t, chi2
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import pruebaPDF
+<<<<<<< HEAD
+=======
+from tkinter import messagebox as mb
+import webbrowser
+from tkinter import ttk
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
 
 root = Tk()
 
@@ -105,20 +111,26 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
       z_critico_superior = 0
       if(nocolas == 1):
             # Hipotesis
-            h0 = "Ho: μ = "+str(mp)
-            h1 = "H1: μ ≠ "+str(mp)
+            h0 = "Ho: μ = "+str(mp)+"."
+            h1 = "H1: μ ≠ "+str(mp)+"."
             # Calculo valores críticos de Z
             z_critico_inferior = round(norm.ppf(alpha/2),4)
             z_critico_superior = round(norm.ppf(1-alpha/2),4)
             # Diseño area de rechazo y no rechazo
+<<<<<<< HEAD
             anr = "Área de no rechazo: entre los valores de Zcrítico ("+str(z_critico_inferior)+", "+str(z_critico_superior)+")"
             ar = "Área de rechazo: a la izquierda de Zc1 = "+str(z_critico_inferior)+" y a la derecha \nde Zc2 = "+str(z_critico_superior)
+=======
+            anr = "Área de no rechazo: entre los valores de Zcrítico ("+str(z_critico_inferior)+", "+str(z_critico_superior)+")."
+            ar = "Área de rechazo: a la izquierda de ZcI = "+str(z_critico_inferior)+" y a la derecha \nde ZcS = "+str(z_critico_superior)+"."
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
             # formula pvalor
-            pval = "pvalor = 2[0.500 - p(Zp)]"
-            pval2 = " = 2[0.500 - p("+str(zp)+")]"
+            pval = "pvalor = 2[0.500 - p(Zp)]."
+            pval2 = " = 2[0.500 - p("+str(zp)+")]."
             # calculo pvalor
             pvalor = round(pvalor*2,4)
             if(zp>z_critico_inferior and zp<z_critico_superior):
+<<<<<<< HEAD
                   r1 = "No se rechaza la Hipótesis nula H0"
                   r2 = "No se rechaza la Hipótesis nula H0, ya que Zp = "+str(zp)+" se \nencuentra entre los valores de Zcrítico ("+str(z_critico_inferior)+", "+str(z_critico_superior)+")"
                   r3 = "No se rechaza la Hipótesis nula H0, ya que el \npvalor = "+str(pvalor)+" > α = "+str(alpha)
@@ -126,19 +138,29 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
                   r1 = "Se rechaza la Hipótesis nula H0"
                   r2 = "Se rechaza la Hipótesis nula H0, ya que Zp = "+str(zp)+" no se \nencuentra entre los valores de Zcrítico ("+str(z_critico_inferior)+", "+str(z_critico_superior)+")"
                   r3 = "Se rechaza la Hipótesis nula H0, ya que el \npvalor = "+str(pvalor)+" < α = "+str(alpha)
+=======
+                  r1 = "No se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a que Zp = "+str(zp)+" se encuentra entre los valores de \nZcrítico ("+str(z_critico_inferior)+", "+str(z_critico_superior)+"), no se rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" > α = "+str(alpha)+", no se rechaza la \nhipótesis nula Ho."
+            else:
+                  r1 = "Se rechaza la Hipótesis nula Ho."
+                  r2 = "Debido a que Zp = "+str(zp)+" no se encuentra entre los valores de \nZcrítico ("+str(z_critico_inferior)+", "+str(z_critico_superior)+"), se rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" < α = "+str(alpha)+", se rechaza la \nhipótesis nula Ho."
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
       if(nocolas == 2):
             # Hipotesis
-            h0 = "Ho: μ >= "+str(mp)
-            h1 = "H1: μ < "+str(mp)
+            h0 = "Ho: μ >= "+str(mp)+"."
+            h1 = "H1: μ < "+str(mp)+"."
             # Calculo valores críticos de Z
             z_critico_inferior = round(norm.ppf(alpha),4)
             # Diseño area de rechazo y no rechazo
-            anr = "Área de no rechazo: a la derecha del valor de Zcrítico = "+str(z_critico_inferior)
-            ar = "Área de no rechazo: a la izquierda del valor de Zcrítico = "+str(z_critico_inferior)
+            anr = "Área de no rechazo: a la derecha del valor de Zcrítico = "+str(z_critico_inferior)+"."
+            ar = "Área de no rechazo: a la izquierda del valor de Zcrítico = "+str(z_critico_inferior)+"."
             # formula pvalor
-            pval = "pvalor = 0.500 - p(Zp)"
-            pval2 = " = 0.500 - p("+str(zp)+")"
+            pval = "pvalor = 0.500 - p(Zp)."
+            pval2 = " = 0.500 - p("+str(zp)+")."
             if(zp>z_critico_inferior):
+<<<<<<< HEAD
                   r1 = "No se rechaza la Hipótesis nula H0"
                   r2 = "No se rechaza la Hipótesis nula H0, ya que Zp = "+str(zp)+" es \nmayor que Zcrítico = "+str(z_critico_inferior)
                   r3 = "No se rechaza la Hipótesis nula H0, ya que el \npvalor = "+str(pvalor)+" > α = "+str(alpha)
@@ -146,19 +168,29 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
                   r1 = "Se rechaza la Hipótesis nula H0"
                   r2 = "Se rechaza la Hipótesis nula H0, ya que Zp = "+str(zp)+" es \nmenor que Zcrítico = "+str(z_critico_inferior)
                   r3 = "Se rechaza la Hipótesis nula H0, ya que el \npvalor = "+str(pvalor)+" < α = "+str(alpha)
+=======
+                  r1 = "No se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a que Zp = "+str(zp)+" es mayor que Zcrítico = "+str(z_critico_inferior)+", \nno se rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" > α = "+str(alpha)+", no se rechaza la \nhipótesis nula Ho."
+            else:
+                  r1 = "Se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a ya que Zp = "+str(zp)+" es menor que Zcrítico = "+str(z_critico_inferior)+", \nse rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" < α = "+str(alpha)+", se rechaza la \nhipótesis nula Ho."
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
       if(nocolas == 3):
             # Hipotesis
-            h0 = "Ho: μ <= "+str(mp)
-            h1 = "H1: μ > "+str(mp)
+            h0 = "Ho: μ <= "+str(mp)+"."
+            h1 = "H1: μ > "+str(mp)+"."
             # Calculo valores críticos de Z
             z_critico_superior = round(norm.ppf(1-alpha),4)
             # Diseño area de rechazo y no rechazo
-            anr = "Área de no rechazo: a la izquierda del valor de Zcrítico = "+str(z_critico_superior)
-            ar = "Área de no rechazo: a la derecha del valor de Zcrítico = "+str(z_critico_superior)
+            anr = "Área de no rechazo: a la izquierda del valor de Zcrítico = "+str(z_critico_superior)+"."
+            ar = "Área de no rechazo: a la derecha del valor de Zcrítico = "+str(z_critico_superior)+"."
             # formula pvalor
-            pval = "pvalor = 0.500 - p(Zp)"
-            pval2 = " = 0.500 - p("+str(zp)+")"
+            pval = "pvalor = 0.500 - p(Zp)."
+            pval2 = " = 0.500 - p("+str(zp)+")."
             if(zp<z_critico_superior):
+<<<<<<< HEAD
                   r1 = "No se rechaza la Hipótesis nula H0"
                   r2 = "No se rechaza la Hipótesis nula H0, ya que Zp = "+str(zp)+" es \nmenor que Zcrítico = "+str(z_critico_superior)
                   r3 = "No se rechaza la Hipótesis nula H0, ya que el \npvalor = "+str(pvalor)+" > α = "+str(alpha)
@@ -170,9 +202,23 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
       #Diseño de GUI
       Label(vcn, text="Paso 1: Formulación de hipótesis",
             font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=5)
+=======
+                  r1 = "No se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a que Zp = "+str(zp)+" es menor que Zcrítico = "+str(z_critico_superior)+", \nno se rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" > α = "+str(alpha)+", no se rechaza la \nhipótesis nula Ho."
+            else:
+                  r1 = "Se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a que Zp = "+str(zp)+" es mayor que Zcrítico = "+str(z_critico_superior)+", \nse rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" < α = "+str(alpha)+", se rechaza la \nhipótesis nula Ho."
+
+      #Diseño de GUI
+      Label(vcn, text="Paso 1: formulación de hipótesis.",
+                  font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=5)
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
       Label(vcn, text=h0,
             font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=40)
       Label(vcn, text=h1,
+<<<<<<< HEAD
             font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=70)
       Label(vcn, text="Paso 2: Nivel de significancia α",
             font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=105)
@@ -184,6 +230,22 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
             font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=210)
       Label(vcn, text= "Paso 4: regla de decisión",
             font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=245)
+=======
+                  font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=70)
+      Label(vcn, text="Paso 2: nivel de significancia α.",
+                  font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=105)
+      Label(vcn, text="α = "+str(alpha)+" = "+str(round(alpha*100,2))+"%.",
+                  font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=140)
+      Label(vcn, text="Paso 3: estadístico de prueba.",
+                  font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=175)
+      #Label(vcn, text= "Z = X̅ - μ / ( σ / raíz(n) )",
+      #            font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=210)
+      global imagen
+      imagen = PhotoImage(file="./img/curvanormal_func.png")
+      Label(vcn, image=imagen).place(x=275,y=210)
+      Label(vcn, text= "Paso 4: regla de decisión.",
+                  font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=305)
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
       fig = graphcn(nocolas, alfa, mp, mm, n, desvest, 0)
       plt.savefig('img/grafica.jpg')
       canvas = FigureCanvasTkAgg(fig, master=vcn)
@@ -195,6 +257,7 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
       Label(vcn, text= ar,
             font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=35, y=815)
       # Segunda parte de la GUI
+<<<<<<< HEAD
       Label(vcn, text= "Paso 5: Prueba del estadístico",
             font=("bold", 17), bg="#2E4053",foreground="white").place(x=795, y=5)
       Label(vcn, text= "Z = X̅ - μ / ( σ / raíz(n) ) = "+str(mm)+" - "+str(mp)+" / ( "+str(desvest)+" / raíz("+str(n)+") )",
@@ -205,20 +268,45 @@ def curvanormal(nocolas, alfa, mp, mm, n, desvest):
             font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=100)
       Label(vcn, text= "pvalor = "+str(pvalor),
             font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=130)
+=======
+      Label(vcn, text= "Paso 5: prueba del estadístico.",
+                  font=("bold", 17), bg="#2E4053",foreground="white").place(x=795, y=5)
+      Label(vcn, text= "Z = X̅ - μ / ( σ / raíz(n) ) = "+str(mm)+" - "+str(mp)+" / ( "+str(desvest)+" / raíz("+str(n)+") ).",
+                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=40)
+      Label(vcn, text= "Zprueba = Zp = "+str(zp)+".",
+                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=70)
+      Label(vcn, text= pval+pval2,
+                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=100)
+      Label(vcn, text= "pvalor = "+str(pvalor)+".",
+                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=130)
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
       fig2 = graphcn(nocolas, alfa, mp, mm, n, desvest, 1)
       plt.savefig('img/grafica2.jpg')
       canvas = FigureCanvasTkAgg(fig2, master=vcn)
       canvas.draw()
+<<<<<<< HEAD
 	# placing the canvas on the Tkinter window
       canvas.get_tk_widget().place(x=795,y=170)
       Label(vcn, text= "Paso 6: Respuestas",
             font=("bold", 17), bg="#2E4053",foreground="white").place(x=795, y=665)
+=======
+            # placing the canvas on the Tkinter window
+      canvas.get_tk_widget().place(x=815,y=170, width=600, height=400)
+      Label(vcn, text= "Paso 6: respuestas.",
+                  font=("bold", 17), bg="#2E4053",foreground="white").place(x=795, y=575)
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
       Label(vcn, text= "1. "+r1,
             font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=695)
       Label(vcn, text= "2. "+r2,
             font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=725)
       Label(vcn, text= "3. "+r3,
+<<<<<<< HEAD
             font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=780)
+=======
+                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=690)
+      Label(vcn, text= "4. Interprete.",
+                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=745)
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
       Button(vcn, text="Guardar PDF",font=("bold", 15), bg="#424949",
             foreground="white", command=lambda:[pruebaPDF.curvanormal(nocolas, alfa, mp, mm, n, desvest,z_critico_inferior,z_critico_superior,zp,pvalor)]).place(x=1075, y=870)
       
@@ -372,6 +460,7 @@ def tstudent(nocolas, alfa, mp, mm, n, desvest):
     alpha = alfa
     gl = n-1
 
+<<<<<<< HEAD
     #calculo tprueba
     tp = round((mm - mp)/(desvest/sqrt(n)),4)
     pvalor = round(t.sf(abs (tp), gl),4)
@@ -489,6 +578,129 @@ def tstudent(nocolas, alfa, mp, mm, n, desvest):
           font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=780)
     Button(vts, text="Guardar PDF",font=("bold", 15), bg="#424949",
            foreground="white", command=lambda:[pruebaPDF.tstudent(nocolas, alfa, mp, mm, n, desvest,t_critico_inferior,t_critico_superior,tp,pvalor)]).place(x=1075, y=870)
+=======
+      #calculo tprueba
+      tp = round((mm - mp)/(desvest/sqrt(n)),4)
+      pvalor = round(t.sf(abs (tp), gl),4)
+
+      if(nocolas == 1):
+            # Hipotesis
+            h0 = "Ho: μ = "+str(mp)+"."
+            h1 = "H1: μ ≠ "+str(mp)+"."
+            # Calculo valores críticos de t
+            t_critico_inferior = round(t.ppf(alpha/2, gl),4)
+            t_critico_superior = round(t.ppf(1 - (alpha/2), gl),4)
+            # calculo pvalor
+            pvalor = round(t.sf(abs (tp), gl)*2 ,4)
+            # Diseño area de rechazo y no rechazo
+            anr = "Área de no rechazo: entre los valores de tcrítico ("+str(t_critico_inferior)+", "+str(t_critico_superior)+")."
+            ar = "Área de rechazo: a la izquierda de tcI = "+str(t_critico_inferior)+" y a la derecha \nde tcS = "+str(t_critico_superior)+"."
+            if(tp>t_critico_inferior and tp<t_critico_superior):
+                  r1 = "No se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a que tp = "+str(tp)+" se encuentra entre los valores de \ntcrítico ("+str(t_critico_inferior)+", "+str(t_critico_superior)+"), no se rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" > α = "+str(alpha)+", no se rechaza \nla hipótesis nula Ho."
+            else:
+                  r1 = "Se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a que tp = "+str(tp)+" no se encuentra entre los valores de \ntcrítico ("+str(t_critico_inferior)+", "+str(t_critico_superior)+"), se rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" < α = "+str(alpha)+", se rechaza la \nhipótesis nula Ho."
+      if(nocolas == 2):
+            # Hipotesis
+            h0 = "Ho: μ >= "+str(mp)+"."
+            h1 = "H1: μ < "+str(mp)+"."
+            # Calculo valores críticos de Z
+            t_critico_inferior = round(t.ppf(alpha, gl),4)
+            t_critico_superior = 0
+            # Diseño area de rechazo y no rechazo
+            anr = "Área de no rechazo: a la derecha del valor de tcrítico = "+str(t_critico_inferior)+"."
+            ar = "Área de no rechazo: a la izquierda del valor de tcrítico = "+str(t_critico_inferior)+"."
+            if(tp>t_critico_inferior):
+                  r1 = "No se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a que tp = "+str(tp)+" es mayor que tcrítico = "+str(t_critico_inferior)+", \nno se rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" > α = "+str(alpha)+", no se rechaza la \nhipótesis nula Ho."
+            else:
+                  r1 = "Se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a que tp = "+str(tp)+" es menor que tcrítico = "+str(t_critico_inferior)+", \nse rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" < α = "+str(alpha)+", se rechaza la \nhipótesis nula Ho."
+      if(nocolas == 3):
+            # Hipotesis
+            h0 = "Ho: μ <= "+str(mp)+"."
+            h1 = "H1: μ > "+str(mp)+"."
+            # Calculo valores críticos de Z
+            t_critico_inferior = 0
+            t_critico_superior = round(t.ppf(1 - (alpha), gl),4)
+            # Diseño area de rechazo y no rechazo
+            anr = "Área de no rechazo: a la izquierda del valor de tcrítico = "+str(t_critico_superior)+"."
+            ar = "Área de no rechazo: a la derecha del valor de tcrítico = "+str(t_critico_superior)+"."
+            if(tp<t_critico_superior):
+                  r1 = "No se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a que tp = "+str(tp)+" es menor que tcrítico = "+str(t_critico_superior)+", \nno se rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" > α = "+str(alpha)+", no se rechaza la \nhipótesis nula Ho."
+            else:
+                  r1 = "Se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a que tp = "+str(tp)+" es mayor que tcrítico = "+str(t_critico_superior)+", \nse rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" < α = "+str(alpha)+", se rechaza la \nhipótesis nula Ho."
+            
+      #Diseño de GUI
+      Label(vts, text="Paso 1: formulación de hipótesis.",
+            font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=5)
+      Label(vts, text=h0,
+            font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=40)
+      Label(vts, text=h1,
+            font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=70)
+      Label(vts, text="Paso 2: nivel de significancia α.",
+            font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=105)
+      Label(vts, text="α = "+str(alpha)+" = "+str(round(alpha*100,2))+"%",
+            font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=140)
+      Label(vts, text="Paso 3: estadístico de prueba.",
+            font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=175)
+      #Label(vts, text= "t = X̅ - μ / ( s / raíz(n) )",
+      #      font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=210)
+      global imagen
+      imagen = PhotoImage(file="./img/tstudent_func.png")
+      Label(vts, image=imagen).place(x=275,y=210)
+      Label(vts, text= "Paso 4: regla de decisión.",
+            font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=300)
+      Label(vts, text="Grados de libertad g.l. = muestra(n) - 1 = "+str(n)+" - 1 = "+str(n-1)+".",
+            font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=330)
+      fig = graphtst(nocolas, alfa, mp, mm, n, desvest, 0)
+      canvas = FigureCanvasTkAgg(fig, master=vts)
+      canvas.draw()
+      # placing the canvas on the Tkinter window
+      canvas.get_tk_widget().place(x=35,y=365, width=600, height=400)
+      Label(vts, text= anr,
+            font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=775)
+      Label(vts, text= ar,
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=35, y=810)
+      # Segunda parte de la GUI
+      Label(vts, text= "Paso 5: prueba del estadístico.",
+            font=("bold", 17), bg="#2E4053",foreground="white").place(x=795, y=5)
+      Label(vts, text= "t = X̅ - μ / ( s / raíz(n) ) = "+str(mm)+" - "+str(mp)+" / ( "+str(desvest)+" / raíz("+str(n)+") ).",
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=40)
+      Label(vts, text= "tprueba = tp = "+str(tp)+".",
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=70)
+      Label(vts, text= "pvalor = "+str(pvalor)+".",
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=100)
+      #Label(vts, text= "",
+      #      font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=130)
+      fig2 = graphtst(nocolas, alfa, mp, mm, n, desvest, 1)
+      canvas = FigureCanvasTkAgg(fig2, master=vts)
+      canvas.draw()
+            # placing the canvas on the Tkinter window
+      canvas.get_tk_widget().place(x=815,y=135, width=600, height=400)
+      Label(vts, text= "Paso 6: respuestas.",
+            font=("bold", 17), bg="#2E4053",foreground="white").place(x=795, y=545)
+      Label(vts, text= "1. "+r1,
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=580)
+      Label(vts, text= "2. "+r2,
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=615)
+      Label(vts, text= "3. "+r3,
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=670)
+      Label(vts, text= "4. Interprete.",
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=725)
+      Button(vts, text="Guardar PDF",font=("bold", 15), bg="#424949",
+            foreground="white", command=lambda:[pruebaPDF.tstudent(nocolas, alfa, mp, mm, n, desvest,t_critico_inferior,t_critico_superior,tp,pvalor)]).place(x=1075, y=775)
+    
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
     
 def wts():
     # Crear una ventana secundaria.
@@ -625,10 +837,21 @@ def graphpm(nocolas, alfa, pm, pp, n, redline):
     return fig
 
 def propmuestral(nocolas, alfa, pm, pp, n):
+<<<<<<< HEAD
     vpm = Toplevel()
     vpm.title("Proporción muestral")
     vpm.resizable(1,0)
     vpm.config(bg="#2E4053")
+=======
+      if(pm > 1 or pp>= 1):
+         mb.showerror("Error", "El valor de la proporción muestral p y el de la proporción problacional P debe ser menor a 1.")
+         return
+      
+      vpm = Toplevel()
+      vpm.title("Proporción muestral")
+      vpm.resizable(0,0)
+      vpm.config(bg="#2E4053")
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
 
     hvpm = 965
     wvpm = 1475
@@ -648,6 +871,7 @@ def propmuestral(nocolas, alfa, pm, pp, n):
     z_critico_inferior = 0
     z_critico_superior = 0
 
+<<<<<<< HEAD
     if(nocolas == 1):
         # Hipotesis
         h0 = "Ho: μ = "+str(pp)
@@ -772,6 +996,137 @@ def propmuestral(nocolas, alfa, pm, pp, n):
           font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=780)
     Button(vpm, text="Guardar PDF",font=("bold", 15), bg="#424949",
            foreground="white", command=lambda:[pruebaPDF.propmuestral(nocolas, alfa, pm, pp, n,z_critico_inferior,z_critico_superior,q,zp,pvalor)]).place(x=1075, y=870)
+=======
+      if(nocolas == 1):
+            # Hipotesis
+            h0 = "Ho: μ = "+str(pp)+"."
+            h1 = "H1: μ ≠ "+str(pp)+"."
+            # Calculo valores críticos de Z
+            z_critico_inferior = round(norm.ppf(alpha/2),4)
+            z_critico_superior = round(norm.ppf(1-alpha/2),4)
+            # Diseño area de rechazo y no rechazo
+            anr = "Área de no rechazo: entre los valores de Zcrítico ("+str(z_critico_inferior)+", "+str(z_critico_superior)+")."
+            ar = "Área de rechazo: a la izquierda de ZcI = "+str(z_critico_inferior)+" y a la derecha \nde ZcS = "+str(z_critico_superior)+"."
+            # formula pvalor
+            pval = "pvalor = 2[0.500 - p(Zp)]."
+            pval2 = " = 2[0.500 - p("+str(zp)+")]."
+            # calculo pvalor
+            pvalor = round(pvalor*2,4)
+            if(zp>z_critico_inferior and zp<z_critico_superior):
+                  r1 = "No se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a que Zp = "+str(zp)+" se encuentra entre los valores de \nZcrítico ("+str(z_critico_inferior)+", "+str(z_critico_superior)+"), no se rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" > α = "+str(alpha)+", no se rechaza la \nhipótesis nula Ho."
+            else:
+                  r1 = "Se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a que Zp = "+str(zp)+" no se encuentra entre los valores de \nZcrítico ("+str(z_critico_inferior)+", "+str(z_critico_superior)+"), se rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" < α = "+str(alpha)+", se rechaza la \nhipótesis nula Ho."
+      if(nocolas == 2):
+            # Hipotesis
+            h0 = "Ho: μ >= "+str(pp)+"."
+            h1 = "H1: μ < "+str(pp)+"."
+            # Calculo valores críticos de Z
+            z_critico_inferior = round(norm.ppf(alpha),4)
+            z_critico_superior = 0
+            # Diseño area de rechazo y no rechazo
+            anr = "Área de no rechazo: a la derecha del valor de Zcrítico = "+str(z_critico_inferior)+"."
+            ar = "Área de no rechazo: a la izquierda del valor de Zcrítico = "+str(z_critico_inferior)+"."
+            # formula pvalor
+            pval = "pvalor = 0.500 - p(Zp)."
+            pval2 = " = 0.500 - p("+str(zp)+")."
+            if(zp>z_critico_inferior):
+                  r1 = "No se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a que Zp = "+str(zp)+" es mayor que Zcrítico = "+str(z_critico_inferior)+", \nno se rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" > α = "+str(alpha)+", no se rechaza la \nhipótesis nula Ho."
+            else:
+                  r1 = "Se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a que Zp = "+str(zp)+" es menor que Zcrítico = "+str(z_critico_inferior)+", \nse rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" < α = "+str(alpha)+", se rechaza la \nhipótesis nula Ho."
+      if(nocolas == 3):
+            # Hipotesis
+            h0 = "Ho: μ <= "+str(pp)+"."
+            h1 = "H1: μ > "+str(pp)+"."
+            # Calculo valores críticos de Z
+            z_critico_inferior = 0
+            z_critico_superior = round(norm.ppf(1-alpha),4)
+            # Diseño area de rechazo y no rechazo
+            anr = "Área de no rechazo: a la izquierda del valor de Zcrítico = "+str(z_critico_superior)+"."
+            ar = "Área de no rechazo: a la derecha del valor de Zcrítico = "+str(z_critico_superior)+"."
+            # formula pvalor
+            pval = "pvalor = 0.500 - p(Zp)."
+            pval2 = " = 0.500 - p("+str(zp)+")."
+            if(zp<z_critico_superior):
+                  r1 = "No se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a que Zp = "+str(zp)+" es menor que Zcrítico = "+str(z_critico_superior)+", \nno se rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" > α = "+str(alpha)+", no se rechaza la \nhipótesis nula Ho."
+            else:
+                  r1 = "Se rechaza la hipótesis nula Ho."
+                  r2 = "Debido a que Zp = "+str(zp)+" es mayor que Zcrítico = "+str(z_critico_superior)+", \nse rechaza la hipótesis nula Ho."
+                  r3 = "Ya que el pvalor = "+str(pvalor)+" < α = "+str(alpha)+", se rechaza la \nhipótesis nula Ho."
+
+      #Diseño de GUI
+      Label(vpm, text="Paso 1: formulación de hipótesis.",
+            font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=5)
+      Label(vpm, text=h0,
+            font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=40)
+      Label(vpm, text=h1,
+            font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=70)
+      Label(vpm, text="Paso 2: nivel de significancia α.",
+            font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=105)
+      Label(vpm, text="α = "+str(alpha)+" = "+str(round(alpha*100,2))+"%",
+            font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=140)
+      Label(vpm, text="Paso 3: estadístico de prueba.",
+            font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=175)
+      #Label(vpm, text= "Z = p - P / raíz((P * Q) / n)",
+      #      font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=210)
+      global imagen
+      imagen = PhotoImage(file="./img/propmuestral_func.png")
+      Label(vpm, image=imagen).place(x=75,y=215)
+      Label(vpm, text="\"p\" = proporcion muestral = "+str(pm)+" = "+str(pm*100)+"%.",
+            font=("bold", 16), bg="#2E4053",foreground="white").place(x=225, y=210)
+      Label(vpm, text="\"P\" = proporcion poblacional = "+str(pp)+" = "+str(pp*100)+"%.",
+            font=("bold", 16), bg="#2E4053",foreground="white").place(x=225, y=245)
+      Label(vpm, text="\"Q\" = 1 - P = "+str(q)+" = "+str(q*100)+"%.",
+            font=("bold", 16), bg="#2E4053",foreground="white").place(x=225, y=280)
+      Label(vpm, text= "Paso 4: regla de decisión.",
+            font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=315)
+      fig = graphpm(nocolas, alfa, pm, pp, n, 0)
+      canvas = FigureCanvasTkAgg(fig, master=vpm)
+      canvas.draw() 
+            # placing the canvas on the Tkinter window
+      canvas.get_tk_widget().place(x=35,y=350, width=600, height=400)
+      Label(vpm, text= anr,
+            font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=760)
+      Label(vpm, text= ar,
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=35, y=795)
+      # Segunda parte de la GUI
+      Label(vpm, text= "Paso 5: prueba del estadístico.",
+            font=("bold", 17), bg="#2E4053",foreground="white").place(x=795, y=5)
+      Label(vpm, text= "Z = p - P / raíz((P * Q) / n) = "+str(pm)+" - "+str(pp)+" /  raíz(("+str(pp)+" * "+str(q)+") /"+str(n)+").",
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=40)
+      Label(vpm, text= "Zprueba = Zp = "+str(zp)+".",
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=70)
+      Label(vpm, text= pval+pval2,
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=100)
+      Label(vpm, text= "pvalor = "+str(pvalor)+".",
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=130)
+      fig2 = graphpm(nocolas, alfa, pm, pp, n, 1)
+      canvas = FigureCanvasTkAgg(fig2, master=vpm)
+      canvas.draw()
+            # placing the canvas on the Tkinter window
+      canvas.get_tk_widget().place(x=815,y=170, width=600, height=400)
+      Label(vpm, text= "Paso 6: respuestas.",
+            font=("bold", 17), bg="#2E4053",foreground="white").place(x=795, y=580)
+      Label(vpm, text= "1. "+r1,
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=615)
+      Label(vpm, text= "2. "+r2,
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=650)
+      Label(vpm, text= "3. "+r3,
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=705)
+      Label(vpm, text= "4. Interprete.",
+            font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=760)
+      Button(vpm, text="Guardar PDF",font=("bold", 15), bg="#424949",
+            foreground="white", command=lambda:[pruebaPDF.propmuestral(nocolas, alfa, pm, pp, n,z_critico_inferior,z_critico_superior,q,zp,pvalor)]).place(x=1075, y=810)
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
     
 
 
@@ -939,6 +1294,7 @@ def chicuadrado(nocolas, alfa, n, varm, varp):
 
       if(nocolas == 1):
             # Hipotesis
+<<<<<<< HEAD
             h0 = "Ho: σ^2 = "+str(varp)
             h1 = "H1: σ^2 ≠ "+str(varp)
             # Calculo valores críticos de X^2
@@ -955,8 +1311,37 @@ def chicuadrado(nocolas, alfa, n, varm, varp):
             h0 = "Ho: σ^2 >= "+str(varp)
             h1 = "H1: σ^2 < "+str(varp)
             # Calculo valores críticos de X^2
+=======
+            h0 = "Ho: σ² = "+str(varp)+"."
+            h1 = "H1: σ² ≠ "+str(varp)+"."
+            # Calculo valores críticos de X²
+            left_critical_value = round(chi2.ppf(alpha/2, gl),4)
+            right_critical_value = round(chi2.ppf(1 - alpha/2, gl),4)
+           # Diseño area de rechazo y no rechazo
+            anr = "Área de no rechazo: entre los valores de X²crítico ("+str(left_critical_value)+", "+str(right_critical_value)+")."
+            ar = "Área de rechazo: a la izquierda de X²cI = "+str(left_critical_value)+" y a la derecha \nde X²cS = "+str(right_critical_value)+"."
+
+            # calculo pvalor
+            pvalor = pvalor*2
+
+            if(x2>left_critical_value and x2<right_critical_value):
+                r1 = "No se rechaza la hipótesis nula Ho."
+                r2 = "Debido a que X²p = "+str(x2)+" se encuentra entre los valores de \nX²crítico ("+str(left_critical_value)+", "+str(right_critical_value)+"), no se rechaza la hipótesis nula Ho."
+                r3 = "Ya que el pvalor = "+str(pvalor)+" > α = "+str(alpha)+", no se rechaza la \nhipótesis nula Ho."
+            else:
+                r1 = "Se rechaza la hipótesis nula Ho"
+                r2 = "Debido a que X²p = "+str(x2)+" no se encuentra entre los valores de \nX²crítico ("+str(left_critical_value)+", "+str(right_critical_value)+"), se rechaza la hipótesis nula Ho."
+                r3 = "Ya que el pvalor = "+str(pvalor)+" < α = "+str(alpha)+", se rechaza la \nhipótesis nula Ho."
+
+      if(nocolas == 2):
+            # Hipotesis
+            h0 = "Ho: σ² >= "+str(varp)+"."
+            h1 = "H1: σ² < "+str(varp)+"."
+            # Calculo valores críticos de X²
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
             left_critical_value = round(chi2.ppf(alpha, gl),4)
             # Diseño area de rechazo y no rechazo
+<<<<<<< HEAD
             anr = "Área de no rechazo: a la derecha del valor de X^2crítico = "+str(left_critical_value)
             ar = "Área de no rechazo: a la izquierda del valor de X^2crítico = "+str(left_critical_value)
            
@@ -972,11 +1357,47 @@ def chicuadrado(nocolas, alfa, n, varm, varp):
                   
       #Diseño de GUI
       Label(vcc, text="Paso 1: Formulación de hipótesis",
+=======
+            anr = "Área de no rechazo: a la derecha del valor de X²crítico = "+str(left_critical_value)+"."
+            ar = "Área de no rechazo: a la izquierda del valor de X²crítico = "+str(left_critical_value)+"."
+
+            if(x2>left_critical_value):
+                r1 = "No se rechaza la hipótesis nula Ho."
+                r2 = "Debido a que X²p = "+str(x2)+" es mayor que X²crítico = "+str(left_critical_value)+", \nno se rechaza la hipótesis nula Ho."
+                r3 = "Ya que el pvalor = "+str(pvalor)+" > α = "+str(alpha)+", no se rechaza la \nhipótesis nula Ho."
+            else:
+                r1 = "Se rechaza la hipótesis nula Ho."
+                r2 = "Debido a que X²p = "+str(x2)+" es menor que X²crítico = "+str(left_critical_value)+", \nse rechaza la hipótesis nula Ho."
+                r3 = "Ya que el pvalor = "+str(pvalor)+" < α = "+str(alpha)+", se rechaza la \nhipótesis nula Ho."
+      if(nocolas == 3):
+            # Hipotesis
+            h0 = "Ho: σ² <= "+str(varp)+"."
+            h1 = "H1: σ² > "+str(varp)+"."
+            # Calculo valores críticos de X²
+            left_critical_value = 0
+            right_critical_value = round(chi2.ppf(1 - alpha, gl),4)
+            # Diseño area de rechazo y no rechazo
+            anr = "Área de no rechazo: a la izquierda del valor de X²crítico = "+str(right_critical_value)+"."
+            ar = "Área de no rechazo: a la derecha del valor de X²crítico = "+str(right_critical_value)+"."
+                  
+            if(x2<right_critical_value):
+                r1 = "No se rechaza la hipótesis nula Ho."
+                r2 = "Debido a que X²p = "+str(x2)+" es menor que X²crítico = "+str(right_critical_value)+", \nno se rechaza la hipótesis nula Ho."
+                r3 = "Ya que el pvalor = "+str(pvalor)+" > α = "+str(alpha)+", no se rechaza la \nhipótesis nula Ho."
+            else:
+                r1 = "Se rechaza la hipótesis nula Ho."
+                r2 = "Debido a que X²p = "+str(x2)+" es mayor que X²crítico = "+str(right_critical_value)+", \nse rechaza la hipótesis nula Ho."
+                r3 = "Ya que el pvalor = "+str(pvalor)+" < α = "+str(alpha)+", se rechaza la \nhipótesis nula Ho."
+
+      #Diseño de GUI
+      Label(vcc, text="Paso 1: formulación de hipótesis.",
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
                  font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=5)
       Label(vcc, text=h0,
                  font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=40)
       Label(vcc, text=h1,
                  font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=70)
+<<<<<<< HEAD
       Label(vcc, text="Paso 2: Nivel de significancia α",
                  font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=105)
       Label(vcc, text="α = "+str(alpha)+" = "+str(alpha*100)+"%",
@@ -989,6 +1410,23 @@ def chicuadrado(nocolas, alfa, n, varm, varp):
                  font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=245)
       Label(vcc, text="Grados de libertad g.l. = muestra(n) - 1 = "+str(n)+" - 1 = "+str(n-1),
                  font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=280)
+=======
+      Label(vcc, text="Paso 2: nivel de significancia α.",
+                 font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=105)
+      Label(vcc, text="α = "+str(alpha)+" = "+str(round(alpha*100,2))+"%.",
+                 font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=140)
+      Label(vcc, text="Paso 3: estadístico de prueba.",
+                 font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=175)
+      #Label(vcc, text= "X² = (n - 1)(s²) / σ²",
+      #           font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=210)
+      global imagen
+      imagen = PhotoImage(file="./img/chicuadrado_func.png")
+      Label(vcc, image=imagen).place(x=240,y=210)
+      Label(vcc, text= "Paso 4: regla de decisión.",
+                 font=("bold", 17), bg="#2E4053",foreground="white").place(x=15, y=275)
+      Label(vcc, text="Grados de libertad g.l. = muestra(n) - 1 = "+str(n)+" - 1 = "+str(n-1)+".",
+                 font=("bold", 16), bg="#2E4053",foreground="white").place(x=35, y=310)
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
       fig = graphchicuadrado(nocolas, alpha, n, varm, varp, 0)
       plt.savefig('img/grafica.jpg')
       canvas = FigureCanvasTkAgg(fig, master=vcc)
@@ -1000,13 +1438,21 @@ def chicuadrado(nocolas, alfa, n, varm, varp):
       Label(vcc, text= ar,
                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=35, y=845)
       # Segunda parte de la GUI
+<<<<<<< HEAD
       Label(vcc, text= "Paso 5: Prueba del estadístico",
                  font=("bold", 17), bg="#2E4053",foreground="white").place(x=795, y=5)
       Label(vcc, text= "X^2 = (n - 1)(s^2) / σ^2 = ("+str(n)+" - 1)("+str(varm)+") / "+str(varp),
                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=40)
       Label(vcc, text= "X^2 = "+str(x2),
+=======
+      Label(vcc, text= "Paso 5: prueba del estadístico.",
+                 font=("bold", 17), bg="#2E4053",foreground="white").place(x=795, y=5)
+      Label(vcc, text= "X² = (n - 1)(s²) / σ² = ("+str(n)+" - 1)("+str(varm)+") / "+str(varp)+".",
+                 font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=40)
+      Label(vcc, text= "X²prueba = X²p = "+str(x2)+".",
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=70)
-      Label(vcc, text= "pvalor = "+str(pvalor),
+      Label(vcc, text= "pvalor = "+str(pvalor)+".",
                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=100)
       Label(vcc, text= "",
                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=130)
@@ -1015,6 +1461,7 @@ def chicuadrado(nocolas, alfa, n, varm, varp):
       canvas = FigureCanvasTkAgg(fig2, master=vcc)
       canvas.draw()
 	# placing the canvas on the Tkinter window
+<<<<<<< HEAD
       canvas.get_tk_widget().place(x=795,y=170)
       Label(vcc, text= "Paso 6: Respuestas",
                  font=("bold", 17), bg="#2E4053",foreground="white").place(x=795, y=665)
@@ -1045,9 +1492,21 @@ def chicuadrado(nocolas, alfa, n, varm, varp):
                 r1 = "Se rechaza la Hipótesis nula H0"
                 r2 = "Se rechaza la Hipótesis nula H0, ya que X^2p = "+str(x2)+" es \nmayor que X^2crítico = "+str(right_critical_value)
                 r3 = "Se rechaza la Hipótesis nula H0, ya que el \npvalor = "+str(pvalor)+" < α = "+str(alpha)
+=======
+      canvas.get_tk_widget().place(x=815,y=140, width=600, height=400)
+      Label(vcc, text= "Paso 6: respuestas.",
+                 font=("bold", 17), bg="#2E4053",foreground="white").place(x=795, y=550)
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
       Label(vcc, text= "1. "+r1,
                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=695)
       Label(vcc, text= "2. "+r2,
+<<<<<<< HEAD
+=======
+                 font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=615)
+      Label(vcc, text= "3. "+r3,
+                 font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=670)
+      Label(vcc, text= "4. Interprete.",
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=725)
       Label(vcc, text= "3. "+r3,
                  font=("bold", 16), bg="#2E4053",foreground="white", justify="left").place(x=815, y=780)
@@ -1129,8 +1588,54 @@ def wcc():
             foreground="white", 
             command= lambda: [chicuadrado(c.get(), alfa.get(), mstra.get(),varm.get(), varp.get()), limpiartexto()]).place(x=350, y=375)
 
+<<<<<<< HEAD
 btn4 = Button(frame, text="Chi cuadrado \"X^2\"", width=38,
               height=6, font=("bold", 18), bg="#27AE60",foreground="white", anchor="center", command=wcc).grid(row="4")
+=======
+btn4 = Button(frame, text="Chi cuadrado - X²", width=38,
+              height=4, font=("bold", 18), bg="#27AE60",foreground="white", anchor="center", command=wcc).grid(row="4")
+
+def abrir_url(url):
+    webbrowser.open(url)
+
+def informacion():
+      # Crear una ventana secundaria.
+      info= Toplevel()
+      info.title("Información")
+      info.resizable(0,0)
+      info.config(bg="#2E4053")
+
+      hinfo = 350
+      winfo = 600
+
+      pwidthinfo = round(wtotal/2-winfo/2)
+      pheightinfo = round(htotal/2-hinfo/2)
+
+      info.geometry(str(winfo)+"x"+str(hinfo)+"+"+str(pwidthinfo)+"+"+str(150))
+
+      texto = "Este proyecto fue creado por estudiantes del curso de Análisis\nProbabilístico en el primer semestre de 2023 de la Carrera de \nIngeniería en Ciencias y Sistemas del Centro Universitario de \nOriente CUNORI en Chiquimula, Guatemala."
+
+      Label(info, text=texto, font=("bold", 15),
+            bg="#2E4053", foreground="white", justify="left").place(x= 5, y=5)
+      Label(info, text="Estudiantes:", font=("bold", 15),
+            bg="#2E4053", foreground="white", justify="left").place(x= 5, y=110)
+      Label(info, text="‣ Eduardo Rubén Cruz Sánchez - 202146471", font=("bold", 15),
+            bg="#2E4053", foreground="white", justify="left").place(x= 15, y=145)
+      Label(info, text="‣ Nery José Galdámez Aristondo - 202140502", font=("bold", 15),
+            bg="#2E4053", foreground="white", justify="left").place(x= 15, y=180)
+      Label(info, text="‣ Ramiro André Chacón Castañeda - 201940859", font=("bold", 15),
+            bg="#2E4053", foreground="white", justify="left").place(x= 15, y=215)
+      Label(info, text="‣ Kenat Jesiel Pérez Lucas - 202040366", font=("bold", 15),
+            bg="#2E4053", foreground="white", justify="left").place(x= 15, y=250)
+      
+      style = ttk.Style()
+      style.configure("Url.TButton", font=("bold", 15), foreground="blue", background="#3498DB")
+      url_button = ttk.Button(info, text="Visita el repositorio en GitHub del proyecto.", style="Url.TButton", cursor="hand2", command=lambda: abrir_url("https://github.com/RamiroChac0n/Prueba_de_Hipotesis"))
+      url_button.place(x=15, y=285)
+
+btn5 = Button(frame, text="Acerca de", width=38,
+              height=2, font=("bold", 18), bg="#707B7C",foreground="white", anchor="center", command=informacion).grid(row="5")
+>>>>>>> 74cb6cb808142036953f69aaa43a73495bb4a74c
 
 frame.pack(
     fill="both",
