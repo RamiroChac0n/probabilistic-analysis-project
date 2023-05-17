@@ -1,6 +1,7 @@
 from fpdf import FPDF
 from tkinter import *
 from tkinter import filedialog
+from tkinter import messagebox as mb
 
 
 muT = "\u03BC"
@@ -505,3 +506,4 @@ def chicuadrado(nocolas, alfa, varm, n,Zinf,Zsup,varp,x2,pvalor):
     archivo = filedialog.asksaveasfilename()
     print(archivo)
     pdf.output(archivo+".pdf")
+    mb.showinfo("Guardado", "El PDF se guardó correctamente en la ruta designada")
