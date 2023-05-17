@@ -7,6 +7,8 @@ from scipy.stats import norm, t, chi2
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import pruebaPDF
 from tkinter import messagebox as mb
+import webbrowser
+from tkinter import ttk
 
 root = Tk()
 
@@ -1154,6 +1156,9 @@ def wcc():
 btn4 = Button(frame, text="Chi cuadrado - X²", width=38,
               height=4, font=("bold", 18), bg="#27AE60",foreground="white", anchor="center", command=wcc).grid(row="4")
 
+def abrir_url(url):
+    webbrowser.open(url)
+
 def informacion():
       # Crear una ventana secundaria.
       info= Toplevel()
@@ -1161,7 +1166,7 @@ def informacion():
       info.resizable(0,0)
       info.config(bg="#2E4053")
 
-      hinfo = 300
+      hinfo = 350
       winfo = 600
 
       pwidthinfo = round(wtotal/2-winfo/2)
@@ -1183,6 +1188,12 @@ def informacion():
             bg="#2E4053", foreground="white", justify="left").place(x= 15, y=215)
       Label(info, text="‣ Kenat Jesiel Pérez Lucas - 202040366", font=("bold", 15),
             bg="#2E4053", foreground="white", justify="left").place(x= 15, y=250)
+      
+      style = ttk.Style()
+      style.configure("Url.TButton", font=("bold", 15), foreground="blue", background="#3498DB")
+      url_button = ttk.Button(info, text="Visita el repositorio en GitHub del proyecto.", style="Url.TButton", cursor="hand2", command=lambda: abrir_url("https://github.com/RamiroChac0n/Prueba_de_Hipotesis"))
+      url_button.place(x=15, y=285)
+
 btn5 = Button(frame, text="Acerca de", width=38,
               height=2, font=("bold", 18), bg="#707B7C",foreground="white", anchor="center", command=informacion).grid(row="5")
 
